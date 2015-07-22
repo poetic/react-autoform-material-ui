@@ -1,0 +1,11 @@
+<template name="autoForm_autoform-material-design-lite">
+  {{#unless afDestroyUpdateForm}}
+    <form {{atts}}>
+      <div class="row">
+        {{#with innerContext ..}}
+          {{> UI.contentBlock this}}
+        {{/with}}
+      </div>
+    </form>
+  {{/unless}}
+</template>

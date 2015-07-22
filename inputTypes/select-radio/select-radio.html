@@ -1,0 +1,10 @@
+<template name="afRadioGroup_autoform-material-design-lite">
+  <div class="af-radio-group" {{dsk}}>
+  {{#each this.items}}
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+  <input type="radio" class="mdl-radio__button" name="{{options}}" value="{{this.value}}" {{atts}}  />
+  <span class="mdl-radio__label">{{this.label}}</span>
+</label>
+  {{/each}}
+  </div>
+</template>

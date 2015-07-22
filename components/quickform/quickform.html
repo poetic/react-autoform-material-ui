@@ -1,0 +1,11 @@
+<template name="quickForm_reactAutoformMaterialUi">
+{{#autoForm this.qfAutoFormContext  }}
+
+    {{> afQuickFields}}
+
+    {{#if qfShouldRenderButton}}
+		{{> afInputSubmit_reactAutoformMaterialUi}}
+    {{/if}}
+  {{/autoForm}}
+
+</template>

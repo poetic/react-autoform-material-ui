@@ -1,0 +1,11 @@
+<template name="afCheckboxGroupInline_autoform-material-design-lite">
+	<div class="inline_autoform-material-design-lite">
+    {{#each this.items}}
+	    	
+			<label for="{{labelID}}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+		  		<input type="checkbox" id="{{labelID}}" class="mdl-checkbox__input" {{atts}} />
+		  		<span class="mdl-checkbox__label">{{this.label}}</span>
+			</label>
+    {{/each}}
+    </div>
+</template>

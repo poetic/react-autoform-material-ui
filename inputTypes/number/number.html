@@ -1,0 +1,7 @@
+<template name="afInputNumber_autoform-material-design-lite">
+	<div class="mdl-textfield mdl-js-textfield">
+    	<input class="mdl-textfield__input" type="number" value="{{this.value}}" pattern="-?[0-9]*(\.[0-9]+)?"  {{this.atts}} name="{{name}}" />
+    	<label class="mdl-textfield__label" >{{this.name}}</label>
+    	<span class="mdl-textfield__error">Input is not a number!</span>
+  	</div>
+</template>
