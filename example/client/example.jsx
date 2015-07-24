@@ -107,8 +107,10 @@ Template["components"].helpers({
     return Components;
   },
     jsonObj() {
-    return JSON.stringify(Schemas.ComponentForm._schema[location.hash.substr(1)]);
-  }
+      let params = homeController.getParams();
+      location.hash = "#" + params.hash;
+      return (params.hash == null) ? 'Pick a component to see its structure' : JSON.stringify(Schemas.ComponentForm._schema[params.hash]);;
+     }
 });
 
 Template["appBar"].helpers({
