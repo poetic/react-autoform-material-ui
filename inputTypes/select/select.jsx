@@ -140,7 +140,6 @@ const Select = React.createClass({
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
-errorText:"",
   render: function() {
     return (
       <div>

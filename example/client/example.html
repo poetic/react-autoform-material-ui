@@ -1,15 +1,37 @@
 <head>
-  <title>example</title>
+    <title>React-Autoform-MaterialUi</title>
 </head>
-
-<body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-</body>
-
-<template name="hello">
-
-{{> quickForm template="reactAutoformMaterialUi" collection="Contacts" id="contactForm" type="insert"}}
-
+<template name="pageTemplate">
+    {{>appBar}}
+    <div class="col-lg-2 menu">
+        {{>menu}}
+    </div>
+    <div class="col-lg-9" style="height: 100%;">
+        {{>yield}}
+    </div>
+</template>
+<!-- Tabs template -->
+<template name="menu">
+    <div>
+        {{>React component=menu}}
+    </div>
+</template>
+<!-- Components template -->
+<template name="components">
+    <div class="componentContainer">
+        <div class="col-lg-3 form-group">
+            {{jsonObj}}
+        </div>
+        <div class="form col-lg-9">
+            <div class="">
+                {{> quickForm template="reactAutoformMaterialUi" collection=components id="componentForm" type="insert"}}
+            </div>
+        </div>
+    </div>
+</template>
+<!-- AppBar template -->
+<template name="appBar">
+    <div class="appBar">
+        {{>React component=appBar}}
+    </div>
 </template>

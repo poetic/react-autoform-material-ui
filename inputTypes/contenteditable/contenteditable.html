@@ -1,4 +1,6 @@
-<template name="afContenteditable_autoform-material-design-lite">
+<template name="afContenteditable_reactAutoformMaterialUi">
   {{getValue this.value}}
-  <div contenteditable="true" {{this.atts}}>You can edit this!</div>
+  <div contenteditable="true">
+{{atts.label}}
+  </div>
 </template>

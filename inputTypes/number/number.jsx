@@ -1,5 +1,5 @@
 AutoForm.addInputType("number", {
-  template: "afInputNumber_autoform-material-design-lite",
+  template: "afInputNumber_reactAutoformMaterialUi",
   valueOut: function () {
     return AutoForm.Utility.stringToNumber(this.val());
   },
@@ -50,5 +50,48 @@ AutoForm.addInputType("number", {
       context.atts.step = '0.01';
     }
     return context;
+  }
+});
+
+const { TextField } = mui;
+const Number = React.createClass({
+
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
+  },
+getInitialState() {
+    return {
+      errorText: ''
+    }
+  },
+  getChildContext: function() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
+  },
+
+  render: function() {
+    return (
+      <TextField floatingLabelText={this.props.atts.label} type="number"
+       errorText={this.state.errorText}
+        onChange={this._handleErrorInputChange} />
+    );
+  },
+     _handleErrorInputChange(e) {
+
+      let val = e.target.value.length ? '': 'Field must be a number!';
+    
+      this.setState({
+      errorText: val
+    });
+  }
+});
+Template['afInputNumber_reactAutoformMaterialUi'].helpers({
+  Number: function(){
+    return Number;
+  },
+  atts: function() {
+    let atts = this.atts;
+    return atts;
   }
 });

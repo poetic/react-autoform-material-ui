@@ -1,36 +1,29 @@
-Contacts = new Mongo.Collection("Contacts");
- if (Meteor.isServer) 
-  {
-    AutoForm.setDefaultTemplate('reactAutoformMaterialUi');
-  }
+Components = new Mongo.Collection("components");
 Schemas = {};
 
-Schemas.ContactForm = new SimpleSchema({
+Schemas.ComponentForm = new SimpleSchema({
   textTest: {
     type: String,
-    label: "Text Test",
     max: 1000,
-    custom: function(){
-      return "something";
+    autoform: {
+         label: "Text Input",
+         type: 'text'
     }
   },
   boolRadioTest: {
     type: String,
     optional: true,
     autoform: {
-      trueLabel: "true!",
-      afFieldInput: {
-        type: "boolean-radios"
-      }
+      trueLabel: "Custom boolean label!",
+      type: "boolean-radios"
+  
     }
   },
   boolSelectTest:{
     type: String,
     optional: true,
     autoform: {
-      afFieldInput: {
-        type: "boolean-select"
-      }
+      type: "boolean-select"
       
     }
   },
@@ -48,58 +41,52 @@ Schemas.ContactForm = new SimpleSchema({
       }
     }
   },
-  boolCheck: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "boolean-checkbox"
-      }
-    }
-  },
+  // BooleanRadio: {
+  //   type: String,
+  //   optional: true,
+  //   autoform: {
+  //     label: "Boolean Radio Button"
+  //     afFieldInput: {
+  //       type: "boolean-checkbox"
+  //     }
+  //   }
+  // },
   testBtn: {
     type: String,
     optional: true,
     autoform: {
-      afFieldInput: {
-        type: "button"
-      },
-      label: false
+      label: "Button",
+      type: "button"
     }
   },
   date: {
     type: String,
     optional: true,
     autoform: {
-      afFieldInput: {
-        type: "date"
-      }
+       type: "date"
     }
   },
   cedit: {
     type: String,
     optional: true,
     autoform: {
-      afFieldInput: {
-        type: "contenteditable"
-      }
+      label:"You can edit this!",
+      type: "contenteditable"
     }
   },
-  datetimelocal: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "datetime-local"
-      }
-    }
-  },
+  // datetimelocal: {
+  //   type: String,
+  //   optional: true,
+  //   autoform: {
+  //     afFieldInput: {
+  //       type: "datetime-local"
+  //     }
+  //   }
+  // },
   email_test: {
     type: String,
     autoform: {
-      afFieldInput: {
         type: "email"
-      }
     }
   },
   fileTest: {
@@ -111,15 +98,15 @@ Schemas.ContactForm = new SimpleSchema({
       }
     }
   },
-  monthTest: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "month"
-      }
-    }
-  },
+  // monthTest: {
+  //   type: String,
+  //   optional: true,
+  //   autoform: {
+  //     afFieldInput: {
+  //       type: "month"
+  //     }
+  //   }
+  // },
   numberTest: {
     type: String,
     optional: true,
@@ -150,6 +137,8 @@ Schemas.ContactForm = new SimpleSchema({
   rangeTest: {
     type: String,
     optional: true,
+    // max:200,
+    // min:5,
     autoform: {
       afFieldInput: {
         type: "range"
@@ -304,8 +293,4 @@ Schemas.ContactForm = new SimpleSchema({
     }
   }
 });
-Contacts.attachSchema(Schemas.ContactForm);
-
-
-
-
+Components.attachSchema(Schemas.ComponentForm);

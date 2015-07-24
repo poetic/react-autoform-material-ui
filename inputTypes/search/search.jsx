@@ -1,5 +1,5 @@
 AutoForm.addInputType("search", {
-  template: "afInputSearch_autoform-material-design-lite",
+  template: "afInputSearch_reactAutoformMaterialUi",
   valueConverters: {
     "stringArray": function (val) {
       if (typeof val === "string" && val.length > 0) {
@@ -15,3 +15,17 @@ AutoForm.addInputType("search", {
     return context;
   }
 });
+
+Template['afInputSearch_reactAutoformMaterialUi'].helpers({
+  atts() {
+    let atts = this.atts;
+
+    return atts;
+  },
+
+  search() {
+
+    return Search;
+  }
+})
+<FontIcon className="muidocs-icon-action-home" />

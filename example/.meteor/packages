@@ -9,3 +9,10 @@ autopublish
 insecure
 poetic:react-autoform-material-ui
 aldeed:simple-schema
+mizzao:bootstrap-3
+meteorhacks:npm
+
+
+npm-container
+entropy:ramjet
+iron:router

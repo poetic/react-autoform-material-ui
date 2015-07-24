@@ -25,7 +25,7 @@ const Time = React.createClass({
 
   render: function() {
     return (
-      <TimePicker format="ampm" hintText="12hr Format"  />
+      <TimePicker format="ampm" hintText="12hr Format" name={this.props.atts.name}  />
     );
   }
 });

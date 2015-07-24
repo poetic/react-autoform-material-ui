@@ -1,5 +1,5 @@
 AutoForm.addInputType("contenteditable", {
-  template: "afContenteditable_autoform-material-design-lite",
+  template: "afContenteditable_reactAutoformMaterialUi",
   valueOut: function () {
     return this.html();
   },
@@ -11,16 +11,21 @@ AutoForm.addInputType("contenteditable", {
   }
 });
 
-Template['afContenteditable_autoform-material-design-lite'].events({
+Template['afContenteditable_reactAutoformMaterialUi'].events({
   'blur div[contenteditable=true]': function (event, template) {
     template.$(event.target).change();
   }
 });
 
-Template['afContenteditable_autoform-material-design-lite'].helpers({
-  getValue: function (value) {
+Template['afContenteditable_reactAutoformMaterialUi'].helpers({
+  getValue(value) {
     if(Template.instance().view.isRendered){
       Template.instance().$('[contenteditable]').html(value);
     }
+  },
+  atts() {
+    let atts =  this.atts;
+    atts.label ? atts.label : "";
+    return atts;
   }
 });

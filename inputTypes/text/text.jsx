@@ -69,7 +69,7 @@ const TextFieldClass = React.createClass({
 
   render: function() {
     return (
-      <TextField floatingLabelText={this.props.atts.name} />
+      <TextField floatingLabelText={this.props.atts.label} name={this.props.atts.name} />
     );
   }
 });
@@ -78,7 +78,7 @@ Template['afInputText_reactAutoformMaterialUi'].helpers({
     return TextFieldClass;
   },
   atts: function() {
-    
-    return this.atts;
+    let atts = this.atts;
+    return atts;
   }
 });

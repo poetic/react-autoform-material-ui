@@ -1,1 +1,36 @@
 /* CSS declarations go here */
+html,body,.componentContainer {
+    height:100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    border: 1px solid #cacaca;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.componentContainer {
+    padding-top: 70px;
+}
+
+.menu {
+    margin-right: 20px;
+    left: -15px;
+    padding-top: 65px;
+}
+
+.appBar {
+    top: 0px;
+    position: absolute;
+}
+.form{
+    height: 95%;
+    max-height: 95%;
+    overflow-y: scroll;
+}

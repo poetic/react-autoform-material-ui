@@ -1,5 +1,5 @@
 Template["afFormGroup_reactAutoformMaterialUi"].helpers({
-    addInputField: function() {
+    addInputField() {
         var result, skipInputType, type;
         skipInputType = [
             'checkbox',
@@ -16,7 +16,7 @@ Template["afFormGroup_reactAutoformMaterialUi"].helpers({
         result = !_.contains(skipInputType, type);
         return result;
     },
-    skipLabel: function() {
+    skipLabel() {
         var result, skipLabelTypes, type;
         skipLabelTypes = [
             'checkbox',
@@ -32,5 +32,9 @@ Template["afFormGroup_reactAutoformMaterialUi"].helpers({
         type = AutoForm.getInputType(this);
         result = this.skipLabel || _.contains(skipLabelTypes, type);
         return result;
+    },
+    atts() {
+        let atts = this.atts;
+        return atts;
     }
 });

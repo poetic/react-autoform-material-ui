@@ -77,6 +77,8 @@ Template["afBooleanRadioGroup_reactAutoformMaterialUi"].helpers({
   },
   atts: function () {
     let atts = this.atts;
+
+    //Check atts object for label values, if not default to True or False
     try
     {
       if(atts.trueLabel.length == 0){

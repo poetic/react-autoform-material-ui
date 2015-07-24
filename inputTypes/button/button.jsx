@@ -18,7 +18,7 @@ const Button = React.createClass({
   render: function() {
     return (
       <div>
-      <RaisedButton type="button" label={this.props.atts.name} secondary={true} />
+      <RaisedButton type="button" label={this.props.atts.label} secondary={true} />
       </div>
     );
   }
@@ -29,6 +29,7 @@ Template['afInputButton_reactAutoformMaterialUi'].helpers({
     return Button;
   },
   atts: function(){
-    return this.atts;
+    let atts = this.atts;
+    return atts;
   }
 });
