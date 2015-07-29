@@ -65,7 +65,8 @@ const DatePickerClass = React.createClass({
 
   render: function() {
     return (
-      <DatePicker hintText={this.props.atts.name}/>
+      <DatePicker hintText={this.props.atts.name} id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk}/>
     );
   }
 });
@@ -74,6 +75,7 @@ Template["afInputDate_react-autoform-material-ui"].helpers({
     return DatePickerClass;
   },
   atts: function(){
-    return this.atts;
+    let atts = new ReactAutoformUtility(this.atts);
+    return atts;
   }
 })

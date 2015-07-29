@@ -1,6 +1,7 @@
 AutoForm.addInputType("range", {
   template: "afInputRange_reactAutoformMaterialUi",
   valueOut: function () {
+    debugger;
     return AutoForm.Utility.stringToNumber(this.val());
   },
   valueConverters: {
@@ -48,31 +49,34 @@ const Range = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
 
-  render: function() {
+  render() {
     return (
       <div>
-      <Slider name={this.props.atts.name} value={this.props.atts.value} max={this.props.atts.max} min={this.props.atts.min} />
+      <Slider value={this.props.atts.value} max={this.props.atts.max} min={this.props.atts.min}
+      error={Session.get(this.props.atts.err)} 
+        id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} />
       </div>
     );
   }
 });
 
 Template["afInputRange_reactAutoformMaterialUi"].helpers({
-  atts: function(){
+  atts(){
 
-    let atts = this.atts;
+    let atts = new ReactAutoformUtility(this.atts);
     atts.min =  /[0-9]i/.test(this.min) ? this.min : 0;
     atts.max =  /[0-9]i/.test(this.max) ? this.max : 100;
-    atts.value = /[0-9]i/.test(this.value) ? this.value: 50;
+    atts.value = /[0-9]i/.test(this.value) ? this.value: 0;
     return atts;
   },
-  Range: function(){
+  Range(){
 
     return Range;
   }

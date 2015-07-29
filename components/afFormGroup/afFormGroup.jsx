@@ -34,7 +34,7 @@ Template["afFormGroup_reactAutoformMaterialUi"].helpers({
         return result;
     },
     atts() {
-        let atts = this.atts;
+        let atts = this;
         return atts;
     }
 });

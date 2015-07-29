@@ -62,7 +62,8 @@ const CheckboxClass = React.createClass({
   render: function() {
     return (
       <div>
-      <Checkbox label={this.props.atts.name} />
+      <Checkbox label={this.props.atts.label}
+       errorText={Session.get(this.props.atts.err)} id={this.props.atts.id} data-schema-key={this.props.atts.dsk}/>
       </div>
     );
   }
@@ -72,7 +73,8 @@ Template["afCheckbox_reactAutoformMaterialUi"].helpers({
     return CheckboxClass;
   },
   atts: function(){
-    return this.atts;
+        let atts = new reactUtility(this.atts);
+    return atts;
   }
 })
 

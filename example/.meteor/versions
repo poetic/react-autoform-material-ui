@@ -1,4 +1,4 @@
-aldeed:autoform@4.0.7
+aldeed:autoform@5.3.2
 aldeed:collection2@2.0.1
 aldeed:simple-schema@1.1.0
 autopublish@1.0.3
@@ -47,9 +47,9 @@ minifiers@1.1.5
 minimongo@1.0.8
 mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.3
+momentjs:moment@2.8.4
 mongo@1.1.0
 mongo-livedata@1.0.8
-mrt:moment@2.6.0
 npm-container@1.0.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3

@@ -1,33 +1,23 @@
 Components = new Mongo.Collection("components");
+
+
 Schemas = {};
 
 Schemas.ComponentForm = new SimpleSchema({
-  textTest: {
+  Text: {
     type: String,
-    max: 1000,
-    autoform: {
-         label: "Text Input",
-         type: 'text'
-    }
+label: "Text Input"
   },
-  boolRadioTest: {
+  BooleanRadios: {
     type: String,
     optional: true,
     autoform: {
-      trueLabel: "Custom boolean label!",
+      trueLabel:'Custom label!',
       type: "boolean-radios"
   
     }
   },
-  boolSelectTest:{
-    type: String,
-    optional: true,
-    autoform: {
-      type: "boolean-select"
-      
-    }
-  },
-  selectRadioTest: {
+  SelectRadio: {
     type: String,
     optional: true,
     autoform: {
@@ -41,17 +31,7 @@ Schemas.ComponentForm = new SimpleSchema({
       }
     }
   },
-  // BooleanRadio: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     label: "Boolean Radio Button"
-  //     afFieldInput: {
-  //       type: "boolean-checkbox"
-  //     }
-  //   }
-  // },
-  testBtn: {
+  Button: {
     type: String,
     optional: true,
     autoform: {
@@ -59,167 +39,71 @@ Schemas.ComponentForm = new SimpleSchema({
       type: "button"
     }
   },
-  date: {
+  Date: {
     type: String,
     optional: true,
     autoform: {
        type: "date"
     }
   },
-  cedit: {
-    type: String,
-    optional: true,
-    autoform: {
-      label:"You can edit this!",
-      type: "contenteditable"
-    }
-  },
-  // datetimelocal: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     afFieldInput: {
-  //       type: "datetime-local"
-  //     }
-  //   }
-  // },
-  email_test: {
+  Email: {
     type: String,
     autoform: {
+      label: "Email",
         type: "email"
     }
   },
-  fileTest: {
+  Number: {
     type: String,
     optional: true,
     autoform: {
+        type: "number",
       afFieldInput: {
-        type: "file"
+        label: "Number"
       }
     }
   },
-  // monthTest: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     afFieldInput: {
-  //       type: "month"
-  //     }
-  //   }
-  // },
-  numberTest: {
+  Password: {
+    type: String,
+    optional: false,
+    autoform: {
+      type: "password",
+      afFieldInput: {
+        
+      }
+    }
+  },
+  RadioButton: {
     type: String,
     optional: true,
     autoform: {
+      type: "radio",
       afFieldInput: {
-        type: "number"
+        
       }
     }
   },
-  passwordTest: {
+  Range: {
     type: String,
     optional: true,
     autoform: {
+      type: "range",
       afFieldInput: {
-        type: "password"
+        
       }
     }
   },
-  radioTest: {
+  Reset: {
     type: String,
     optional: true,
     autoform: {
+       type: "reset",
       afFieldInput: {
-        type: "radio"
+       
       }
     }
   },
-  rangeTest: {
-    type: String,
-    optional: true,
-    // max:200,
-    // min:5,
-    autoform: {
-      afFieldInput: {
-        type: "range"
-      }
-    }
-  },
-  resetTest: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "reset"
-      }
-    }
-  },
-  // searchTest: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     afFieldInput: {
-  //       type: "search"
-  //     }
-  //   }
-  // },
-  // selectRadioTest: {
-  //       type: String,
-  //   optional: true,
-  //   autoform: {
-  //     type: "select-radio",
-  //     options: function () {
-  //       return [
-  //         {label: "2013", value: 2013},
-  //         {label: "2014", value: 2014},
-  //         {label: "2015", value: 2015}
-  //       ];
-  //     }
-  //   }
-  // },
-  // selectRadioInlineTest: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     type: "select-radio-inline",
-  //     options: function () {
-  //       return [
-  //         {label: "2013", value: 2013},
-  //         {label: "2014", value: 2014},
-  //         {label: "2015", value: 2015}
-  //       ];
-  //     }
-  //   }
-  // },
-  // select_checboxTest: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     type: "select-checkbox",
-  //     options: function () {
-  //       return [
-  //         {label: "2013", value: 2013},
-  //         {label: "2014", value: 2014},
-  //         {label: "2015", value: 2015}
-  //       ];
-  //     }
-  //   }
-  // },
-  // select_checboxTest_inline: {
-  //   type: String,
-  //   optional: true,
-  //   autoform: {
-  //     type: "select-checkbox-inline",
-  //     options: function () {
-  //       return [
-  //         {label: "2013", value: 2013},
-  //         {label: "2014", value: 2014},
-  //         {label: "2015", value: 2015}
-  //       ];
-  //     }
-  //   }
-  // },
-  selectMultipleTest: {
+  SelectMultiple: {
     type: String,
     optional: true,
     autoform: {
@@ -233,52 +117,24 @@ Schemas.ComponentForm = new SimpleSchema({
       }
     }
   },
-  telTest: {
+  TextArea: {
     type: String,
     optional: true,
     autoform: {
+       type: "textarea",
       afFieldInput: {
-        type: "tel"
+       
       }
     }
   },
-  textAreaTest: {
+  Time: {
     type: String,
     optional: true,
     autoform: {
-      afFieldInput: {
-        type: "textarea"
-      }
-    }
-  },
-  timeTest: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "time"
-      }
-    }
-  },
-  urlTest: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "url"
-      }
-    }
-  },
-  weekTest: {
-    type: String,
-    optional: true,
-    autoform: {
-      afFieldInput: {
-        type: "week"
-      }
-    }
-  },
-  selectTest: {
+      type: "time"
+  }
+},
+  Select: {
     type: String,
     optional: true,
     autoform: {
@@ -293,4 +149,5 @@ Schemas.ComponentForm = new SimpleSchema({
     }
   }
 });
+
 Components.attachSchema(Schemas.ComponentForm);

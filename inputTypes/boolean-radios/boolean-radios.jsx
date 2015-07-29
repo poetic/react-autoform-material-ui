@@ -49,53 +49,40 @@ const RadioButtonGroupClass = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
 
-  render: function() {
+  render() {
     return (
-      <div>
-      <RadioButtonGroup name={this.props.atts.name} >
+   
+      <RadioButtonGroup errorText={Session.get(this.props.atts.err)} id={this.props.atts.id} name={this.props.atts.id} data-schema-key={this.props.atts.dsk} >
         <RadioButton
-            value="true"
+            value={true}
             label={this.props.atts.trueLabel} />
         <RadioButton
-          value="false"
+          value={false}
           label={this.props.atts.falseLabel}/>
        </RadioButtonGroup>
-       </div>
+     
     );
   }
 });
 Template["afBooleanRadioGroup_reactAutoformMaterialUi"].helpers({
 
-  BooleanRadios: function(){
+  BooleanRadios(){
     return RadioButtonGroupClass;
   },
-  atts: function () {
-    let atts = this.atts;
+  atts() {
+    let atts = new ReactAutoformUtility(this.atts);
 
     //Check atts object for label values, if not default to True or False
-    try
-    {
-      if(atts.trueLabel.length == 0){
-        atts.trueLabel = "True";
-      }
-    }catch(e){
-      atts.trueLabel = "True";
-    }
-    try
-    {
-     if(atts.falseLabel.length == 0){
-            atts.trueLabel = "False";
-          }
-    }catch(e){
+ 
+    atts.trueLabel = (this.atts.trueLabel == undefined || null) ? "True" : this.atts.trueLabel;
+    atts.falseLabel = (this.atts.falseLabel == undefined || null) ? "False" : this.atts.falseLabel;
 
-      atts.falseLabel = "False";
-    }
-    return this.atts;
+    return atts;
   }
 });

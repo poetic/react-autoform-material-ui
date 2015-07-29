@@ -4,9 +4,15 @@ AutoForm.addInputType("email", {
     if (typeof context.atts.maxlength === "undefined" && typeof context.max === "number") {
       context.atts.maxlength = context.max;
     }
+
     return context;
+  },
+  valueOut() {
+    debugger;
+    return this.val();
   }
 });
+
 
 const { TextField } = mui;
 const Email = React.createClass({
@@ -14,45 +20,32 @@ const Email = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
-getInitialState() {
-    return {
-      errorText: 'This field is required.'
-    }
-  },
+
   getChildContext: function() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
-_value() {
-this.getValue();
-},
+
   render: function() {
     return (
-      <div>
+
       <TextField
-        floatingLabelText={this.props.atts.name}
-        errorText={this.state.errorText}
-        onChange={this._handleErrorInputChange} />
-      </div>
+        floatingLabelText={this.props.atts.label}
+        errorText={Session.get(this.props.atts.err)} 
+        id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} />
+
     );
-  },
-   _handleErrorInputChange(e) {
-    let re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    let val = 'This field is required.';
-    if(e.target.value.length){
-      val = re.test(e.target.value) ? '': 'Invalid Email address';
-    }
-      this.setState({
-      errorText: val
-    });
   }
 });
+
 Template['afInputEmail_reactAutoformMaterialUi'].helpers({
-  Email: function(){
+  Email(){
     return Email;
   },
-  atts: function() {    
-    return this.atts;
+  atts() {   
+    let atts = new ReactAutoformUtility(this.atts);
+    return atts;
   }
 });

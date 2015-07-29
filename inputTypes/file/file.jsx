@@ -16,15 +16,16 @@ const File = React.createClass({
   render: function() {
     return (
 		<div>
-      <RaisedButton type="file" label={this.props.atts.name} secondary={true}>
-	  </RaisedButton>
+      <RaisedButton type="file" label={this.props.atts.name} secondary={true} id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} />
 	  </div>
     );
   }
 });
 Template["afInputFile_reactAutoformMaterialUi"].helpers({
 	atts:function(){
-		return this.atts;
+    let atts = new ReactAutoformUtility(this.atts);
+		return atts;
 	},
 	File: function(){
 		return File;

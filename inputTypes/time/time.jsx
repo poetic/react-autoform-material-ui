@@ -17,24 +17,28 @@ const Time = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
 
-  render: function() {
+  render() {
     return (
-      <TimePicker format="ampm" hintText="12hr Format" name={this.props.atts.name}  />
+      <TimePicker format="ampm" hintText="12hr Format"
+       errorText={Session.get(this.props.atts.err)} 
+        id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} />
     );
   }
 });
 
 Template["afInputTime_react-autoform-material-ui"].helpers({
-	atts: function(){
-		return this.atts;
+	atts(){
+    let atts = new ReactAutoformUtility(this.atts);
+    return atts;
 	},
-	Time: function(){
+	Time(){
 		return Time;
 	}
 })

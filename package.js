@@ -19,15 +19,17 @@ Package.onUse(function(api) {
         'poetic:react-material-ui',
         'templating',
         'underscore',
-        'aldeed:autoform@4.0.0 || 5.0.0',
+        'aldeed:autoform@5.3.1',
         'aldeed:collection2'
     ], 'client');
     api.imply([
-      'aldeed:autoform@4.0.0 || 5.0.0',
       'poetic:react-material-ui',
       'react'
       ]);
     api.addFiles([
+         //Load Lib Files
+         'lib/utility.jsx',
+
         //Load components here
         'components/quickform/quickform.html',
         'components/quickform/quickform.jsx',

@@ -1,37 +1,69 @@
 <head>
     <title>React-Autoform-MaterialUi</title>
 </head>
-<template name="pageTemplate">
-    {{>appBar}}
-    <div class="col-lg-2 menu">
-        {{>menu}}
-    </div>
-    <div class="col-lg-9" style="height: 100%;">
-        {{>yield}}
+<template name='pageTemplate'>
+    {{>appBar}} {{>menu}} {{>yield}}
+</template>
+<template name='home'>
+    <div class='col-lg-9' style='height: 100%;'>
+        {{>overview}}
     </div>
 </template>
-<!-- Tabs template -->
-<template name="menu">
-    <div>
+<!-- Menu template -->
+<template name='menu'>
+    <div class='col-lg-2 menu form'>
         {{>React component=menu}}
     </div>
 </template>
-<!-- Components template -->
-<template name="components">
-    <div class="componentContainer">
-        <div class="col-lg-3 form-group">
-            {{jsonObj}}
+<template name='overview'>
+    <div class='componentContainer'>
+        <div id='overview'>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">React-Autoform-MaterialUi - Overview</h3>
+                </div>
+                <div class="panel-body">
+                    React-Autoform-MaterialUi, is a meteor package for Autoform that helps render your forms using Material-UI components!
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Installation</h3>
+                </div>
+                <div class="panel-body">
+                    <p>In a Meteor app directory, enter:</p>
+                    <br/>
+                    <pre>$ meteor add poetic:react-autoform-material-ui </pre>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Notes</h3>
+                </div>
+                <div class="panel-body">
+                    <p>In order to use this package, please ensure you have the following packages installed</p>
+                    <br/> Autoform
+                    <pre>$ meteor add aldeed:autoform</pre> React
+                    <pre>$ meteor add react</pre>
+                    
+                </div>
+            </div>
         </div>
-        <div class="form col-lg-9">
-            <div class="">
-                {{> quickForm template="reactAutoformMaterialUi" collection=components id="componentForm" type="insert"}}
+    </div>
+</template>
+<!-- Components template -->
+<template name='components'>
+    <div class='componentContainer'>
+        <div class='form col-lg-9'>
+            <div>
+                {{> quickForm collection=components id="componentForm" type="insert" buttonContent=false}}
             </div>
         </div>
     </div>
 </template>
 <!-- AppBar template -->
-<template name="appBar">
-    <div class="appBar">
+<template name='appBar'>
+    <div class='appBar'>
         {{>React component=appBar}}
     </div>
 </template>

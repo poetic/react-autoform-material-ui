@@ -59,11 +59,7 @@ const Number = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
-getInitialState() {
-    return {
-      errorText: ''
-    }
-  },
+
   getChildContext: function() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
@@ -73,17 +69,10 @@ getInitialState() {
   render: function() {
     return (
       <TextField floatingLabelText={this.props.atts.label} type="number"
-       errorText={this.state.errorText}
-        onChange={this._handleErrorInputChange} />
+       errorText={Session.get(this.props.atts.err)}
+        id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} />
     );
-  },
-     _handleErrorInputChange(e) {
-
-      let val = e.target.value.length ? '': 'Field must be a number!';
-    
-      this.setState({
-      errorText: val
-    });
   }
 });
 Template['afInputNumber_reactAutoformMaterialUi'].helpers({

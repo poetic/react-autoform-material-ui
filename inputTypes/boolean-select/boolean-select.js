@@ -1,6 +1,7 @@
 AutoForm.addInputType("boolean-select", {
   template: "afBooleanSelect_react-autoform-material-ui",
   valueOut: function () {
+    debugger;
     var val = this.val();
     if (val === "true") {
       return true;

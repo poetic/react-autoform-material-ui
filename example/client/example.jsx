@@ -1,8 +1,19 @@
 AutoForm.setDefaultTemplate('reactAutoformMaterialUi');
 
-const componentsLink = 'http://'+location.host + '#';
+const componentsLink ='/components/#';
 
-const { LeftNav, AppBar,RaisedButton,Menu,MenuItem,FontIcon,Toolbar,ToolbarGroup,ToolbarTitle } = mui;
+const { 
+  LeftNav,
+  AppBar,
+  RaisedButton,
+  Menu,
+  MenuItem,
+  FontIcon,
+  Toolbar,
+  ToolbarGroup,
+  ToolbarTitle,
+  MenuDivider
+   } = mui;
 
 const AppBarComponent = React.createClass({
 
@@ -22,9 +33,18 @@ const AppBarComponent = React.createClass({
   render() {
     return (
       <div>
-       <AppBar title="" style={{position:'fixed'}}
-        iconElementLeft={ <RaisedButton linkButton={true} href="https://github.com/poetic/react-autoform-material-ui"
-         secondary={true} label="React Autoform Material-UI"  disabled={true}>
+       <AppBar title={
+
+        <RaisedButton linkButton={true} href="/demo"
+        id='demo_btn'
+         secondary={true}
+          label="Demo / quickForm Playground">
+       </RaisedButton>
+
+     }
+        style={{position:'fixed'}}
+        iconElementLeft={ <RaisedButton linkButton={true} href="/"
+         secondary={true} label="React Autoform Material-UI / Docs">
        </RaisedButton>}
 
         onLeftIconButtonTouchTap={this._toggle}
@@ -49,23 +69,28 @@ const MenuComponent = React.createClass({
     };
   },
 
- _handleItemTouchTap(e,child) {
-  e.preventDefault();
-    console.log('Tapped!');
-  },
-
   render() {
     let menuItems = [];
+     menuItems.push({
+        type: MenuItem.Types.LINK, 
+        payload: '/#overview', 
+        text: 'Overview'
+          });
+     menuItems.push({
+        type: MenuItem.Types.SUBHEADER,
+        text: 'Components'
+          });
+
     for (let comp in Schemas.ComponentForm._schema){
       menuItems.push({
         type: MenuItem.Types.LINK, 
-        payload: componentsLink + comp, 
-        text: Schemas.ComponentForm._schema[comp].autoform.type
+        payload: '/components/#' + comp, 
+        text: comp
           })
     }
     return (
       <div>
-          <Menu menuItems={menuItems} onItemTouchTap={this._handleItemTouchTap}>
+          <Menu menuItems={menuItems}>
            </Menu>
       </div>
     
@@ -96,32 +121,34 @@ const TabsComponent = React.createClass({
   )}
   });
 
-Template["menu"].helpers({
+Template['menu'].helpers({
   menu: function(){
     return MenuComponent;
   }
 });
 
-Template["components"].helpers({
+Template['components'].helpers({
   components() {
+    let hash = componentsController.getParams().hash;
+    location = '/components/#'+hash;
+    // console.dir(hash);
     return Components;
-  },
-    jsonObj() {
-      let params = homeController.getParams();
-      location.hash = "#" + params.hash;
-      return (params.hash == null) ? 'Pick a component to see its structure' : JSON.stringify(Schemas.ComponentForm._schema[params.hash]);;
-     }
+  }
+
 });
 
-Template["appBar"].helpers({
+Template['appBar'].helpers({
   appBar(){
     return AppBarComponent;
   }
 })
-Template["quickForm"].rendered = function() {
 
-  console.dir("here");
-}
-
+  Template['appBar'].rendered = function() {
+      $('#demo_btn').parent().css({
+        'margin-top': '1%',
+    left: '30%',
+    'position': 'relative'
+  })
+  }
 
 

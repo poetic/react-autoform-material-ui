@@ -1,0 +1,12 @@
+<template name='demo'>
+	<div class="componentContainer">
+    <div class='row'>
+        <div class='col-lg-6'>
+            {{>quickForm collection=session_collection id="session_form" validation='keyup' type='insert'}}
+        </div>
+        <div class='col-lg-3' id='schema_struct'>
+        	{{schema_struct}}
+        </div>
+    </div>
+</div>
+</template>

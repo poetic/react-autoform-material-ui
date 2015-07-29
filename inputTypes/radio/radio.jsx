@@ -29,20 +29,19 @@ const Radio = React.createClass({
 
   render: function() {
     return (
-      <RadioButtonGroup name={this.props.atts.name} >
+      <RadioButtonGroup id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk} >
         <RadioButton
-            value="true"
-            label={this.props.atts.name}
-            name={this.props.atts.name}
-             />
+            value={true}
+            label={this.props.atts.name}/>
        </RadioButtonGroup>
     );
   }
 });
 Template["afRadio_reactAutoformMaterialUi"].helpers({
-  atts: function() {
-
-    return this.atts;
+  atts() {
+    let atts = new ReactAutoformUtility(this.atts);
+    return atts;
   },
   Radio: function(){
     return Radio;

@@ -31,7 +31,10 @@ const Password = React.createClass({
   render: function() {
     return (
     <div>
- <TextField type="password" floatingLabelText={this.props.atts.name} name={this.props.atts.name} />
+      <TextField type="password" floatingLabelText={this.props.atts.label}
+       errorText={Session.get(this.props.atts.err)}
+       id={this.props.atts.id} name={this.props.atts.id}
+       data-schema-key={this.props.atts.dsk}/>
     </div>
     );
   }
@@ -41,6 +44,7 @@ Template["afInputPassword_reactAutoformMaterialUi"].helpers({
     return Password;
   },
   atts(){
-    return this;
+    let atts = new ReactAutoformUtility(this.atts);
+    return atts;
   }
 })
