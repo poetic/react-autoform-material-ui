@@ -1,57 +1,24 @@
-<div id="overview">
+### React-Autoform-MaterialUi - Overview ***
 
-<div class="panel panel-default">
 
-<div class="panel-heading">
+React-Autoform-MaterialUi, is a meteor package for Autoform that helps render your forms using Material-UI components
 
-### React-Autoform-MaterialUi - Overview
+## Installation
 
-</div>
-
-<div class="panel-body">React-Autoform-MaterialUi, is a meteor package for Autoform that helps render your forms using Material-UI components!</div>
-
-</div>
-
-<div class="panel panel-default">
-
-<div class="panel-heading">
-
-### Installation
-
-</div>
-
-<div class="panel-body">
 
 In a Meteor app directory, enter:
 
-<pre>$ meteor add poetic:react-autoform-material-ui </pre>
+```$ meteor add poetic:react-autoform-material-ui ```
 
-</div>
+## Notes ***
 
-</div>
-
-<div class="panel panel-default">
-
-<div class="panel-heading">
-
-### Notes
-
-</div>
-
-<div class="panel-body">
 
 In order to use this package, please ensure you have the following packages installed
 
 Autoform
 
-<pre>$ meteor add aldeed:autoform</pre>
+```$ meteor add aldeed:autoform ```
 
 React
 
-<pre>$ meteor add react</pre>
-
-</div>
-
-</div>
-
-</div>
+```$ meteor add react```
