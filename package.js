@@ -4,7 +4,7 @@ Package.describe({
     // Brief, one-line summary of the package.
     summary: '',
     // URL to the Git repository containing the source code for this package.
-    git: '',
+    git: 'https://github.com/poetic/react-autoform-material-ui',
     // By default, Meteor will default to using README.md for documentation.
     // To avoid submitting documentation, set this field to null.
     documentation: 'README.md'
@@ -43,6 +43,8 @@ Package.onUse(function(api) {
         'inputTypes/boolean-radios/boolean-radios.jsx',
         'inputTypes/button/button.html',
         'inputTypes/button/button.jsx',
+        'inputTypes/checkbox/checkbox.html',
+        'inputTypes/checkbox/checkbox.jsx',
         'inputTypes/contenteditable/contenteditable.html',
         'inputTypes/contenteditable/contenteditable.jsx',
         'inputTypes/date/date.html',
@@ -63,8 +65,8 @@ Package.onUse(function(api) {
         'inputTypes/reset/reset.jsx',
         'inputTypes/select/select.html',
         'inputTypes/select/select.jsx',
-        'inputTypes/select-multiple/select-multiple.html',
-        'inputTypes/select-multiple/select-multiple.jsx',
+        // 'inputTypes/select-multiple/select-multiple.html',
+        // 'inputTypes/select-multiple/select-multiple.jsx',
         'inputTypes/select-radio/select-radio.html',
         'inputTypes/select-radio/select-radio.jsx',
         'inputTypes/text/text.html',

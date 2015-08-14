@@ -73,6 +73,14 @@ label: "Text Input"
       }
     }
   },
+  Checkbox: {
+    type: String,
+    label: 'Checkbox label'
+    autoform: {
+      type: 'checkbox'
+
+    }
+  },
   RadioButton: {
     type: String,
     optional: true,

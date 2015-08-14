@@ -53,12 +53,12 @@ const SelectMultiple = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext()) {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
-  render: function() {
+  render() {
    let results = this.props.atts.items;
 
     return (
@@ -71,12 +71,12 @@ const SelectMultiple = React.createClass({
   }
 });
 Template["afSelectMultiple_reactAutoformMaterialUi"].helpers({
-  atts: function(){
+  atts(){
     let atts = this.atts;
     atts.items = this.items;
     return atts
   },
-  SelectMultiple: function(){
+  SelectMultiple() {
     return SelectMultiple;
   }
 })

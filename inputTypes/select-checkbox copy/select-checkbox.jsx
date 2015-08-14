@@ -1,5 +1,5 @@
-AutoForm.addInputType("select-checkbox", {
-  template: "afCheckboxGroup_autoform-material-design-lite",
+AutoForm.addInputType('select-checkbox', {
+  template: 'afCheckboxGroup_reactAutoformMaterialUi',
   valueIsArray: true,
   valueOut: function () {
     var val = [];
@@ -35,27 +35,41 @@ AutoForm.addInputType("select-checkbox", {
   }
 });
 
-Template["afCheckboxGroup_autoform-material-design-lite"].helpers({
-  atts: function selectedAttsAdjust() {
-    var atts = _.clone(this.atts);
+const { Checkbox } = mui;
+const Checkbox = React.createClass({
+
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
+  },
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
+  },
+
+  render() {
+    return (
+       <Checkbox
+        name={this.props.attsname}
+        value={this.props.atts.value}
+        label={this.props.atts.label}/>
+    );
+  }
+});
+Template['afCheckboxGroup_reactAutoformMaterialUi'].helpers({
+  atts() {
+    // let atts = _.clone(this.atts);
+    let atts = new ReactAutoformUtility(this.atts);
     if (this.selected) {
       atts.checked = "";
     }
     // remove data-schema-key attribute because we put it
     // on the entire group
-    delete atts["data-schema-key"];
+    // delete atts['data-schema-key'];
     return atts;
   },
-  dsk: function dsk() {
-    return {
-      "data-schema-key": this.atts["data-schema-key"]
-    }
-  },
-  label: function(){
-    return this.label;
-  },
-  labelID: function  () {
-    // console.dir(this);
-    return this['_id'];
-  }
+checkbox() {
+  return Checkbox
+}
 });

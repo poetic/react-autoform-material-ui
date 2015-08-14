@@ -17,7 +17,7 @@ const Submit = React.createClass({
   render: function() {
     return (
 
-      <RaisedButton type="submit" label="Submit" secondary={true} >
+      <RaisedButton type="submit" label={this.props.atts.label} secondary={true} >
       </RaisedButton>
     );
   }
@@ -28,7 +28,10 @@ Template["afInputSubmit_reactAutoformMaterialUi"].helpers({
 
 		return Submit;
 	},
-  atts: function(){
-    return this.atts;
+  atts(){
+    
+    let atts = ReactAutoformUtility(this.atts);
+    atts.label = this.atts.buttonContent == undefined || null ? 'SUBMIT' : this.atts.buttonContent.toLocaleUpperCase();
+    return atts;
   }
 })

@@ -43,7 +43,7 @@ Template["afRadio_reactAutoformMaterialUi"].helpers({
     let atts = new ReactAutoformUtility(this.atts);
     return atts;
   },
-  Radio: function(){
+  Radio(){
     return Radio;
   }
 });
