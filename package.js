@@ -80,11 +80,3 @@ Package.onUse(function(api) {
         'react-autoform-material-ui.jsx'
     ], 'client');
 });
-
-
-
-Package.onTest(function(api) {
-    api.use('tinytest');
-    api.use('react-autoform-material-ui');
-    api.addFiles('react-autoform-material-ui-tests.js');
-});
