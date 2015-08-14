@@ -14,7 +14,7 @@ Package.onUse(function(api) {
     api.versionsFrom('1.1.0.2');
 
     api.use([
-        'react',
+        'react@0.1.7',
         'react-template-helper@0.1.2',
         'poetic:react-material-ui@0.0.2',
         'templating@1.1.1',
