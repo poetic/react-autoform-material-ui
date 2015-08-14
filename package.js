@@ -15,12 +15,12 @@ Package.onUse(function(api) {
 
     api.use([
         'react',
-        'react-template-helper',
-        'poetic:react-material-ui',
-        'templating',
-        'underscore',
+        'react-template-helper@0.1.2',
+        'poetic:react-material-ui@0.0.2',
+        'templating@1.1.1',
+        'underscore@1.0.3',
         'aldeed:autoform@5.3.1',
-        'aldeed:collection2'
+        'aldeed:collection2@2.3.3'
     ], 'client');
     api.imply([
       'poetic:react-material-ui',
