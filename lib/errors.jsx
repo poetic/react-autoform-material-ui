@@ -1,0 +1,1 @@
+rmc_errors = {};

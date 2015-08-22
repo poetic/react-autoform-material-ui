@@ -1,21 +1,13 @@
 AutoForm.addInputType('checkbox', {
   template: 'afCheckboxGroup_reactAutoformMaterialUi',
-  valueIsArray: true,
   valueOut: function () {
-    var val = [];
-    this.find('input[type=checkbox]').each(function () {
-      if ($(this).is(":checked")) {
-        val.push($(this).val());
-      }
-    });
-    return val;
+    return this.val();
   },
   contextAdjust: function (context) {
     var itemAtts = _.omit(context.atts);
 
     // build items list
     context.items = [];
-
     // Add all defined options
     _.each(context.selectOptions, function(opt) {
       context.items.push({
@@ -30,7 +22,6 @@ AutoForm.addInputType('checkbox', {
         atts: itemAtts
       });
     });
-
     return context;
   }
 });
@@ -51,27 +42,29 @@ const CheckboxComponent = React.createClass({
   render() {
     return (
        <Checkbox
-       id={this.props.atts.id}
-       name={this.props.atts.id}
-       data-schema-key={this.props.atts.dsk} 
+        id={this.props.atts.id}
+        className='rmc_check'
+        name={this.props.atts.id}
+        data-schema-key={this.props.atts.dsk} 
         value={this.props.atts.value}
         label={this.props.atts.label}/>
     );
   }
 });
-Template['afCheckboxGroup_reactAutoformMaterialUi'].helpers({
+// Template.afCheckboxGroup_reactAutoformMaterialUi.events({
+//   'change .rmc_check' (e) {
+//     this.atts.value = !this.atts.value;
+    
+//   }
+// })
+Template.afCheckboxGroup_reactAutoformMaterialUi.helpers({
   atts() {
-   
+    
     let atts = new ReactAutoformUtility(this.atts);
-    if (this.selected) {
-      atts.checked = "";
-    }
-    // remove data-schema-key attribute because we put it
-    // on the entire group
-    // delete atts['data-schema-key'];
+    this.atts = atts;
     return atts;
   },
-checkbox() {
-  return CheckboxComponent;
-}
+  checkbox() {
+    return CheckboxComponent;
+  }
 });

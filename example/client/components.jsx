@@ -6,7 +6,7 @@ Schemas = {};
 Schemas.ComponentForm = new SimpleSchema({
   Text: {
     type: String,
-label: "Text Input"
+    label: "Text Input"
   },
   BooleanRadios: {
     type: String,
@@ -75,7 +75,7 @@ label: "Text Input"
   },
   Checkbox: {
     type: String,
-    label: 'Checkbox label'
+    label: 'Checkbox label',
     autoform: {
       type: 'checkbox'
 

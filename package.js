@@ -1,6 +1,6 @@
 Package.describe({
     name: 'poetic:react-autoform-material-ui',
-    version: '0.0.1',
+    version: '0.0.2',
     // Brief, one-line summary of the package.
     summary: 'Render your Autoform, using Material-UI components',
     // URL to the Git repository containing the source code for this package.
@@ -19,16 +19,19 @@ Package.onUse(function(api) {
         'poetic:react-material-ui@0.0.2',
         'templating@1.1.1',
         'underscore@1.0.3',
+        'bigdsk:inputmask@3.1.63',
         'aldeed:autoform@5.3.1',
         'aldeed:collection2@2.3.3'
     ], 'client');
     api.imply([
       'poetic:react-material-ui',
+      'bigdsk:inputmask',
       'react'
       ]);
     api.addFiles([
          //Load Lib Files
          'lib/utility.jsx',
+         'lib/errors.jsx',
 
         //Load components here
         'components/quickform/quickform.html',
@@ -65,8 +68,8 @@ Package.onUse(function(api) {
         'inputTypes/reset/reset.jsx',
         'inputTypes/select/select.html',
         'inputTypes/select/select.jsx',
-        // 'inputTypes/select-multiple/select-multiple.html',
-        // 'inputTypes/select-multiple/select-multiple.jsx',
+        'inputTypes/tel/tel.html',
+        'inputTypes/tel/tel.jsx',
         'inputTypes/select-radio/select-radio.html',
         'inputTypes/select-radio/select-radio.jsx',
         'inputTypes/text/text.html',
