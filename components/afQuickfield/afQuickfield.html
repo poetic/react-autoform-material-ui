@@ -1,11 +1,3 @@
 <template name="afQuickField_reactAutoformMaterialUi">
-  {{#if isGroup atts=this}}
-    {{> afObjectField_reactAutoformMaterialUi}}
-  {{else}}
-    {{#if isFieldArray atts=this}}
-      {{> afArrayField_reactAutoformMaterialUi}}
-    {{else}}
-      {{> afFormGroup_reactAutoformMaterialUi groupAtts}}
-    {{/if}}
-  {{/if}}
+  {{> afFormGroup_reactAutoformMaterialUi groupAtts}}
 </template>

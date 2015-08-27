@@ -5,7 +5,7 @@ ReactAutoformUtility = function(atts){
 	 this.label =  (AutoForm.getSchemaForField(atts.name).label == null || undefined) ? atts.name : AutoForm.getSchemaForField(atts.name).label ;
 	}catch(e)
 	{
-	 console.log('');
+	 console.warn(e);
 	}
     
   this.attributes = atts;

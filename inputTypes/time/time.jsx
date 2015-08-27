@@ -25,10 +25,12 @@ const Time = React.createClass({
 
   render() {
     return (
-      <TimePicker format="ampm" hintText="12hr Format"
-       errorText={Session.get(this.props.atts.err)} 
+      <TimePicker
+        format="24hr"
+        pedantic={true}
+        errorText={Session.get(this.props.atts.err)} 
         id={this.props.atts.id} name={this.props.atts.id}
-       data-schema-key={this.props.atts.dsk} />
+        data-schema-key={this.props.atts.dsk} />
     );
   }
 });

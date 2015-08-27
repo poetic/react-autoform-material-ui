@@ -8,7 +8,6 @@ AutoForm.addInputType("email", {
     return context;
   },
   valueOut() {
-    debugger;
     return this.val();
   }
 });
@@ -34,7 +33,7 @@ const Email = React.createClass({
         floatingLabelText={this.props.atts.label}
         errorText={Session.get(this.props.atts.err)} 
         id={this.props.atts.id} name={this.props.atts.id}
-       data-schema-key={this.props.atts.dsk} />
+        data-schema-key={this.props.atts.dsk} />
 
     );
   }

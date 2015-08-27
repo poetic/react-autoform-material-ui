@@ -6,21 +6,15 @@ const hooksObject = {
 
   // Called when any submit operation succeeds
   onSuccess: function(formType, result) {
-      // Object.keys(Session.keys).forEach(function(key){ Session.set(key, ''); })
       Object.keys(rmc_errors).forEach(function(key){ 
         delete rmc_errors[key]
       })
   },
 
   // Called when any submit operation fails
-  onError: function(formType, error) {
-    // Object.keys(rmc_errors).forEach(function(key){
-    // Session.set(key, ''); 
-    // rmc_errors
-    // })
+  onError: function(formType, error) {    
     let formId = AutoForm.getFormId();
     error.invalidKeys.map(function(key,index) {
-      // (index==0) ? Session.set(formId+key.name,error.message) : Session.set(formId+key.name,key.type);
       if (index==0) 
       {
         rmc_errors[formId+key.name] = error.message;

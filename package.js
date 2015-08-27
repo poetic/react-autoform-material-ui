@@ -30,8 +30,8 @@ Package.onUse(function(api) {
       ]);
     api.addFiles([
          //Load Lib Files
-         'lib/utility.jsx',
-         'lib/errors.jsx',
+        'lib/utility.jsx',
+        'lib/errors.jsx',
 
         //Load components here
         'components/quickform/quickform.html',
