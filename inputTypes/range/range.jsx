@@ -1,7 +1,6 @@
 AutoForm.addInputType("range", {
   template: "afInputRange_reactAutoformMaterialUi",
   valueOut: function () {
-    debugger;
     return AutoForm.Utility.stringToNumber(this.val());
   },
   valueConverters: {
