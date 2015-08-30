@@ -1,7 +1,9 @@
 ### React-Autoform-MaterialUi - Overview 
 
 
-React-Autoform-MaterialUi, is a meteor package for Autoform that helps render your forms using Material-UI components
+React-Autoform-MaterialUi, is a meteor package for Autoform that helps render your forms using Material-UI components.
+
+[Demo](http://ramui.meteor.com/)
 
 ## Installation
 

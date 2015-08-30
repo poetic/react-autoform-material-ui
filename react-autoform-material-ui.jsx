@@ -17,8 +17,8 @@ const hooksObject = {
     error.invalidKeys.map(function(key,index) {
       if (index==0) 
       {
-        rmc_errors[formId+key.name] = error.message;
-      }
+        rmc_errors[formId+key.name] = error.message; 
+      }.
       else
       {
         rmc_errors[formId+key.name] = key.type
@@ -29,4 +29,3 @@ const hooksObject = {
 
 };
 AutoForm.addHooks(null, hooksObject);
-
