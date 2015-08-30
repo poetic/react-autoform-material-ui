@@ -18,7 +18,7 @@ const hooksObject = {
       if (index==0) 
       {
         rmc_errors[formId+key.name] = error.message; 
-      }.
+      }
       else
       {
         rmc_errors[formId+key.name] = key.type
