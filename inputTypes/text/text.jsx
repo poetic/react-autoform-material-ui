@@ -55,6 +55,7 @@ AutoForm.addInputType("text", {
     return context;
   }
 });
+
 const { TextField } = mui;
 const TextFieldClass = React.createClass({
   childContextTypes: {
@@ -69,7 +70,7 @@ const TextFieldClass = React.createClass({
   render: function() {
     return (
       <TextField floatingLabelText={this.props.atts.label}
-       errorText={Session.get(this.props.atts.err)} id={this.props.atts.id} data-schema-key={this.props.atts.dsk} />
+       errorText={this.props.atts.err} id={this.props.atts.id} data-schema-key={this.props.atts.dsk} />
     );
   }
 });

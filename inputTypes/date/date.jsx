@@ -1,5 +1,5 @@
 AutoForm.addInputType("date", {
-  template: "afInputDate_react-autoform-material-ui",
+  template: "afInputDate_reactAutoformMaterialUi",
   valueIn: function (val) {
     //convert Date to string value
     return (val instanceof Date) ? AutoForm.Utility.dateToDateStringUTC(val) : val;

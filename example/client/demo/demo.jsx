@@ -1,23 +1,27 @@
 let demo_schemas = {};
 sessionCollection = new Mongo.Collection('sessioncollection');
-
+sessionCollection.find().observe({
+  added: renderer,
+  removed:renderer,
+  changed: renderer,
+})
 
 demo_schemas.sessionSchema = new SimpleSchema({
 	session_text: {
-        type: String,
-        label: 'Name'
+    type: String,
+    label: 'Name'
   },
-      email: {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email,
-        label: "E-mail address"
-    },
+  email: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+    label: "E-mail address"
+  },
   Time: {
     type: String,
     autoform: {
       type: "time"
-  }
-},
+    }
+  },
 });
 
 
@@ -37,26 +41,27 @@ Template['demo'].rendered = function() {
 }
 
 function renderer() {
-   let html = '';
+  let html = '';
   sessionCollection.find().forEach(
-    function(doc){
-
-      html += '<pre>Got ' + doc['email'] +' for ' + doc['session_text'] + ' at ' + doc['Time'] +'</pre>';
-    })
+  function(doc){
+    html += '<pre>Got ' + doc['email'] +' for ' + doc['session_text'] + ' at ' + doc['Time'] +'</pre>';
+  })
 
   $('#schema_struct').html(html);
 }
+
+
+
+
 const hooksObj = {
 
   // Called when any submit operation succeeds
-  onSuccess: function(formType, result) {
-     let html = '';
-  sessionCollection.find().forEach(
-    function(doc){
-      html += '<pre>Got ' + doc['email'] +' for ' + doc['session_text'] + ' at ' + doc['Time'] + '</pre>';
-    })
+  onSubmit: function(formType, result) {
+    this.event.preventDefault(); //Prevent default form submission
+    sessionCollection.insert(result.$set)
 
-  $('#schema_struct').html(html);
+    let formId = AutoForm.getFormId();
+    $('#'+formId)[0].reset();//clear form
   },
 
 

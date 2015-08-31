@@ -1,1 +1,1 @@
-rmc_errors = {};
+ramui_errors = {};

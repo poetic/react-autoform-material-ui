@@ -1,4 +1,4 @@
-ÓAutoForm.addInputType('checkbox', {
+AutoForm.addInputType('checkbox', {
   template: 'afCheckboxGroup_reactAutoformMaterialUi',
   valueOut() {
     return this.value;

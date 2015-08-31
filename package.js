@@ -16,6 +16,7 @@ Package.onUse(function(api) {
     api.use([
         'react@0.1.7',
         'react-template-helper@0.1.2',
+        'reactive-var',
         'poetic:react-material-ui@0.0.2',
         'templating@1.1.1',
         'underscore@1.0.3',
@@ -28,6 +29,10 @@ Package.onUse(function(api) {
       'bigdsk:inputmask',
       'react'
       ]);
+    api.export([
+    'ramui_errors'
+  ], 'client');
+
     api.addFiles([
          //Load Lib Files
         'lib/utility.jsx',

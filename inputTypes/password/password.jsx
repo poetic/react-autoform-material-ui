@@ -32,7 +32,7 @@ const Password = React.createClass({
     return (
     <div>
       <TextField type="password" floatingLabelText={this.props.atts.label}
-       errorText={Session.get(this.props.atts.err)}
+       errorText={this.props.atts.err}
        id={this.props.atts.id} name={this.props.atts.id}
        data-schema-key={this.props.atts.dsk}/>
     </div>

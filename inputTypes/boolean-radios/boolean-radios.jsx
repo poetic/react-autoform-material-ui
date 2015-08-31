@@ -58,7 +58,7 @@ const RadioButtonGroupClass = React.createClass({
   render() {
     return (
    
-      <RadioButtonGroup errorText={Session.get(this.props.atts.err)} id={this.props.atts.id} name={this.props.atts.id} data-schema-key={this.props.atts.dsk} >
+      <RadioButtonGroup errorText={this.props.atts.err} id={this.props.atts.id} name={this.props.atts.id} data-schema-key={this.props.atts.dsk} >
         <RadioButton
             value={true}
             label={this.props.atts.trueLabel} />

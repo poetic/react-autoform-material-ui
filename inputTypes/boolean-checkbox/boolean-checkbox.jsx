@@ -63,7 +63,7 @@ const CheckboxClass = React.createClass({
     return (
       <div>
       <Checkbox label={this.props.atts.label}
-       errorText={Session.get(this.props.atts.err)} id={this.props.atts.id} data-schema-key={this.props.atts.dsk}/>
+       errorText={this.props.atts.err} id={this.props.atts.id} data-schema-key={this.props.atts.dsk}/>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 AutoForm.addInputType("datetime-local", {
-  template: "afInputDateTimeLocal_autoform-material-design-lite",
+  template: "afInputDateTimeLocal_reactAutoformMaterialUi",
   valueIn: function (val, atts) {
     //convert Date to string value
     return (val instanceof Date) ? AutoForm.Utility.dateToNormalizedLocalDateAndTimeString(val, atts.timezoneId) : val;

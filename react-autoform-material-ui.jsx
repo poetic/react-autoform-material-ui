@@ -5,25 +5,28 @@ injectTapEventPlugin();
 const hooksObject = {
 
   // Called when any submit operation succeeds
-  onSuccess: function(formType, result) {
-      Object.keys(rmc_errors).forEach(function(key){ 
-        delete rmc_errors[key]
-      })
+  onSubmit: function(formType, result) {
+    Object.keys(ramui_errors).forEach(function(key){ 
+      ramui_errors[key].set('');
+    })
   },
 
   // Called when any submit operation fails
   onError: function(formType, error) {    
     let formId = AutoForm.getFormId();
+    
+     Object.keys(ramui_errors).forEach(function(key){ 
+      ramui_errors[key].set('');
+    })
     error.invalidKeys.map(function(key,index) {
       if (index==0) 
       {
-        rmc_errors[formId+key.name] = error.message; 
+        ramui_errors[formId+key.name].set(error.message); 
       }
       else
       {
-        rmc_errors[formId+key.name] = key.type
+        ramui_errors[formId+key.name].set(key.type);
       }
-
     })
   },
 
