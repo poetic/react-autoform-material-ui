@@ -7,7 +7,7 @@ ReactAutoformUtility = function(atts){
 	{
 	 console.warn(e);
 	}
-    
+
   this.attributes = atts;
 	this.formId = AutoForm.getFormId();
 	this.schema = AutoForm.getFormSchema();
@@ -15,6 +15,7 @@ ReactAutoformUtility = function(atts){
 	this.id = atts.id;
 	this.name = atts.name;
 	this.dsk = atts['data-schema-key'];
+  this.value = atts.value || ''
   
   if(ramui_errors[this.formId+this.name]){
     this.err  = ramui_errors[this.formId+this.name].get();

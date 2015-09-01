@@ -51,7 +51,7 @@ AutoForm.addInputType("text", {
     if (typeof context.atts.maxlength === "undefined" && typeof context.max === "number") {
       context.atts.maxlength = context.max;
     }
-    
+    context.atts.value = context.value;
     return context;
   }
 });
@@ -69,7 +69,7 @@ const TextFieldClass = React.createClass({
   },
   render: function() {
     return (
-      <TextField floatingLabelText={this.props.atts.label}
+      <TextField floatingLabelText={this.props.atts.label} defaultValue={this.props.atts.value}
        errorText={this.props.atts.err} id={this.props.atts.id} data-schema-key={this.props.atts.dsk} />
     );
   }

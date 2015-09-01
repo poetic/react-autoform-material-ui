@@ -4,7 +4,7 @@ AutoForm.addInputType("email", {
     if (typeof context.atts.maxlength === "undefined" && typeof context.max === "number") {
       context.atts.maxlength = context.max;
     }
-
+    context.atts.value = context.value;
     return context;
   },
   valueOut() {
@@ -31,6 +31,8 @@ const Email = React.createClass({
 
       <TextField
         floatingLabelText={this.props.atts.label}
+        type="email"
+        defaultValue={this.props.atts.value}
         errorText={Session.get(this.props.atts.err)} 
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk} />
