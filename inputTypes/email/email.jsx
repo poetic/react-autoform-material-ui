@@ -33,7 +33,7 @@ const Email = React.createClass({
         floatingLabelText={this.props.atts.label}
         type="email"
         defaultValue={this.props.atts.value}
-        errorText={Session.get(this.props.atts.err)} 
+        errorText={this.props.atts.err} 
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk} />
 
