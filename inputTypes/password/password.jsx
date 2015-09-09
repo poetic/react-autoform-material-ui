@@ -33,6 +33,7 @@ const Password = React.createClass({
     <div>
       <TextField type="password" floatingLabelText={this.props.atts.label}
        errorText={this.props.atts.err}
+       fullWidth={true}
        id={this.props.atts.id} name={this.props.atts.id}
        data-schema-key={this.props.atts.dsk}/>
     </div>

@@ -31,9 +31,10 @@ const Email = React.createClass({
 
       <TextField
         floatingLabelText={this.props.atts.label}
+        fullWidth={true}
         type="email"
         defaultValue={this.props.atts.value}
-        errorText={this.props.atts.err} 
+        errorText={this.props.atts.err}
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk} />
 
@@ -45,7 +46,7 @@ Template['afInputEmail_reactAutoformMaterialUi'].helpers({
   Email(){
     return Email;
   },
-  atts() {   
+  atts() {
     let atts = new ReactAutoformUtility(this.atts);
     return atts;
   }
