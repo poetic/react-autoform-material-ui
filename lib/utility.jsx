@@ -1,30 +1,27 @@
 ReactAutoformUtility = function(atts){
 
-	try
-	{
-	 this.label =  (AutoForm.getSchemaForField(atts.name).label == null || undefined) ? atts.name : AutoForm.getSchemaForField(atts.name).label ;
-	}catch(e)
-	{
-	 console.warn(e);
-	}
+  try
+  {
+    this.label =  (AutoForm.getSchemaForField(atts.name).label == null || undefined) ? atts.name : AutoForm.getSchemaForField(atts.name).label ;
+  }catch(e)
+  {
+    console.warn(e);
+  }
 
   this.attributes = atts;
-	this.formId = AutoForm.getFormId();
-	this.schema = AutoForm.getFormSchema();
-	this.context = this.schema.namedContext();
-	this.id = atts.id;
-	this.name = atts.name;
-	this.dsk = atts['data-schema-key'];
+  this.formId = AutoForm.getFormId();
+  this.schema = AutoForm.getFormSchema();
+  this.id = atts.id;
+  this.name = atts.name;
+  this.dsk = atts['data-schema-key'];
   this.value = atts.value || ''
-  
-  if(ramui_errors[this.formId+this.name]){
-    this.err  = ramui_errors[this.formId+this.name].get();
-  }else{
-    ramui_errors[this.formId+this.name] = new ReactiveVar();
-    ramui_errors[this.formId+this.name].set('')
-    this.err = ramui_errors[this.formId+this.name].get();
-  }
+  this.validationContext = this.schema.namedContext(this.formId)
+this.err = '';
 
-  	return this;
-  }
+if (this.validationContext.keyIsInvalid(this.dsk) ) {
+  this.err = this.validationContext.keyErrorMessage(this.dsk)
+}
+
+  return this;
+}
 

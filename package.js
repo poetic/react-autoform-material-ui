@@ -36,7 +36,6 @@ Package.onUse(function(api) {
     api.addFiles([
          //Load Lib Files
         'lib/utility.jsx',
-        'lib/errors.jsx',
 
         //Load components here
         'components/quickform/quickform.html',
@@ -85,6 +84,8 @@ Package.onUse(function(api) {
         'inputTypes/submit/submit.jsx',
         'inputTypes/time/time.html',
         'inputTypes/time/time.jsx',
-        'react-autoform-material-ui.jsx'
+
+        //load stylesheets
+        'stylesheets/rmui.css'
     ], 'client');
 });
