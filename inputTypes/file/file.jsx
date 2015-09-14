@@ -12,22 +12,37 @@ const File = React.createClass({
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
+  _handleChange: function(e){
+    console.log(e.target.value)
+  },
+  _openFileDialog: function(){
+    var fileUploadDom = React.findDOMNode(this.refs.fileUpload);
+    fileUploadDom.click();
+  },
 
   render: function() {
     return (
-		<div>
-      <RaisedButton type="file" label={this.props.atts.name} secondary={true} id={this.props.atts.id} name={this.props.atts.id}
-       data-schema-key={this.props.atts.dsk} />
-	  </div>
+      <div>
+        <RaisedButton label={this.props.atts.name} secondary={true} id={this.props.atts.id}
+          onClick={this._openFileDialog}
+        />
+        <input
+          ref="fileUpload"
+          data-schema-key={this.props.atts.dsk}
+          type="file"
+          name={this.props.atts.dsk}
+          style={{"display" : "none"}}
+          onChange={this._handleChange}/>
+      </div>
     );
   }
 });
 Template["afInputFile_reactAutoformMaterialUi"].helpers({
-	atts:function(){
+  atts:function(){
     let atts = new ReactAutoformUtility(this.atts);
-		return atts;
-	},
-	File: function(){
-		return File;
-	}
+    return atts;
+  },
+  File: function(){
+    return File;
+  }
 })

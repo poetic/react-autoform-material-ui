@@ -31,7 +31,7 @@ momentjs:moment@2.8.4
 mongo@1.1.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-poetic:react-autoform-material-ui@0.0.5
+poetic:react-autoform-material-ui@0.0.6
 poetic:react-material-ui@0.0.2
 random@1.0.3
 react@0.1.7
