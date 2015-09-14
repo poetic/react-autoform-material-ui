@@ -1,5 +1,7 @@
 Components = new Mongo.Collection("components");
 
+ThemeManager = new mui.Styles.ThemeManager();
+injectTapEventPlugin();
 
 Schemas = {};
 
@@ -14,7 +16,7 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
       trueLabel:'Custom label!',
       type: "boolean-radios"
-  
+
     }
   },
   SelectRadio: {
@@ -69,16 +71,8 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
       type: "password",
       afFieldInput: {
-        
-      }
-    }
-  },
-  Checkbox: {
-    type: String,
-    label: 'Checkbox label',
-    autoform: {
-      type: 'checkbox'
 
+      }
     }
   },
   RadioButton: {
@@ -87,7 +81,7 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
       type: "radio",
       afFieldInput: {
-        
+
       }
     }
   },
@@ -97,7 +91,7 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
       type: "range",
       afFieldInput: {
-        
+
       }
     }
   },
@@ -107,7 +101,7 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
        type: "reset",
       afFieldInput: {
-       
+
       }
     }
   },
@@ -131,7 +125,7 @@ Schemas.ComponentForm = new SimpleSchema({
     autoform: {
        type: "textarea",
       afFieldInput: {
-       
+
       }
     }
   },
@@ -140,6 +134,12 @@ Schemas.ComponentForm = new SimpleSchema({
     optional: true,
     autoform: {
       type: "time"
+  }
+},
+File: {
+  type: String,
+  autoform: {
+    type:"file"
   }
 },
   Select: {
