@@ -70,7 +70,7 @@ const DatePickerClass = React.createClass({
     );
   }
 });
-Template["afInputDate_react-autoform-material-ui"].helpers({
+Template["afInputDate_reactAutoformMaterialUi"].helpers({
   DatePicker: function(){
     return DatePickerClass;
   },

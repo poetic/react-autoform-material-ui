@@ -30,11 +30,12 @@ Package.onUse(function(api) {
       'react'
       ]);
     api.export([
-    'ramui_errors'
+    'rmui'
   ], 'client');
 
     api.addFiles([
          //Load Lib Files
+      'lib/rmui.jsx',
         'lib/utility.jsx',
 
         //Load components here

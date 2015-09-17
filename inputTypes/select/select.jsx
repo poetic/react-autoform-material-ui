@@ -135,29 +135,35 @@ const Select = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext() {
     return {
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
-  render: function() {
+  _getValue(event, index, obj) {
+    let domNode = React.findDOMNode(this);
+    $(domNode).val(event.target.value)
+  },
+  render() {
     return (
-      <div>
-<SelectField
+      <div
+        data-schema-key={this.props.atts.dsk}>
+        <SelectField
   valueMember="value"
   displayMember="label"
+  ref='selectField'
+errorText={this.props.atts.err}
+onChange={this._getValue}
   menuItems={this.props.atts.items} />
   </div>
     );
   },
-  _handleFloatingInputChange: function(){
-   //Handle verification/validation here
-  }
 });
 
 Template["afSelect_reactAutoformMaterialUi"].helpers({
   atts: function(){
-    let atts = this.atts;
+
+    let atts = new ReactAutoformUtility(this.atts);
     atts.items = this.items;
      return atts;
   },

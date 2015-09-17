@@ -22,6 +22,19 @@ demo_schemas.sessionSchema = new SimpleSchema({
       type: "time"
     }
   },
+  Select: {
+    type: String,
+    autoform: {
+      type: "select",
+      options: function () {
+        return [
+          {label: "2013", value: 2013},
+          {label: "2014", value: 2014},
+          {label: "2015", value: 2015}
+        ];
+      }
+    }
+  }
 });
 
 
@@ -56,13 +69,17 @@ function renderer() {
 const hooksObj = {
 
   // Called when any submit operation succeeds
-  onSubmit: function(formType, result) {
+  onSubmit(formType, result) {
     this.event.preventDefault(); //Prevent default form submission
     sessionCollection.insert(result.$set)
 
     let formId = AutoForm.getFormId();
     $('#'+formId)[0].reset();//clear form
   },
+  formToDoc(doc){
+    let s = doc;
+     return doc
+  }
 
 
 };
