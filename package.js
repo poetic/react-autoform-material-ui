@@ -1,6 +1,6 @@
 Package.describe({
     name: 'poetic:react-autoform-material-ui',
-    version: '0.0.8',
+    version: '0.0.9',
     // Brief, one-line summary of the package.
     summary: 'Render your Autoform, using Material-UI components',
     // URL to the Git repository containing the source code for this package.

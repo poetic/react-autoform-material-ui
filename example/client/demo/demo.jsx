@@ -16,6 +16,12 @@ demo_schemas.sessionSchema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Email,
     label: "E-mail address"
   },
+  Date: {
+    type: String,
+    autoform: {
+       type: "date"
+    }
+  },
   Time: {
     type: String,
     autoform: {

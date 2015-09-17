@@ -65,7 +65,7 @@ const DatePickerClass = React.createClass({
 
   render: function() {
     return (
-      <DatePicker hintText={this.props.atts.name} id={this.props.atts.id} name={this.props.atts.id}
+      <DatePicker errorText={this.props.atts.err} hintText={this.props.atts.name} id={this.props.atts.id} name={this.props.atts.id}
        data-schema-key={this.props.atts.dsk}/>
     );
   }
