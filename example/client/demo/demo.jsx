@@ -7,7 +7,7 @@ sessionCollection.find().observe({
 })
 
 demo_schemas.sessionSchema = new SimpleSchema({
-	session_text: {
+  session_text: {
     type: String,
     label: 'Name'
   },
@@ -19,7 +19,7 @@ demo_schemas.sessionSchema = new SimpleSchema({
   Date: {
     type: String,
     autoform: {
-       type: "date"
+      type: "date"
     }
   },
   Time: {
@@ -48,25 +48,25 @@ sessionCollection.attachSchema(demo_schemas.sessionSchema);
 
 Template['demo'].helpers({
 
-	session_collection() {
+  session_collection() {
     // Returns the session collection
-		return sessionCollection;
-	}
+    return sessionCollection;
+  }
 })
 
 Template['demo'].rendered = function() {
- renderer();
+  renderer();
 
 }
 
 function renderer() {
   let html = '';
   sessionCollection.find().forEach(
-  function(doc){
-    html += '<pre>Got ' + doc['email'] +' for ' + doc['session_text'] + ' at ' + doc['Time'] +'</pre>';
-  })
+    function(doc){
+      html += '<pre>Got ' + doc['email'] +' for ' + doc['session_text'] + ' at ' + doc['Time'] +'</pre>';
+    })
 
-  $('#schema_struct').html(html);
+    $('#schema_struct').html(html);
 }
 
 
@@ -82,11 +82,6 @@ const hooksObj = {
     let formId = AutoForm.getFormId();
     $('#'+formId)[0].reset();//clear form
   },
-  formToDoc(doc){
-    let s = doc;
-     return doc
-  }
-
 
 };
 AutoForm.addHooks('session_form', hooksObj);
