@@ -1,6 +1,6 @@
 Package.describe({
     name: 'poetic:react-autoform-material-ui',
-    version: '0.0.9',
+    version: '0.1.0',
     // Brief, one-line summary of the package.
     summary: 'Render your Autoform, using Material-UI components',
     // URL to the Git repository containing the source code for this package.
@@ -41,6 +41,10 @@ Package.onUse(function(api) {
         //Load components here
         'components/quickform/quickform.html',
         'components/quickform/quickform.jsx',
+        'components/afObjectField/afObjectField.html',
+        'components/afObjectField/afObjectField.jsx',
+        'components/afArrayField/afArrayField.html',
+        'components/afArrayField/afArrayField.jsx',
         'components/afFormGroup/afFormGroup.html',
         'components/afFormGroup/afFormGroup.jsx',
 

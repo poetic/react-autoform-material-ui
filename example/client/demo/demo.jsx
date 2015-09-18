@@ -16,31 +16,12 @@ demo_schemas.sessionSchema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Email,
     label: "E-mail address"
   },
-  Date: {
-    type: String,
-    autoform: {
-      type: "date"
-    }
-  },
   Time: {
     type: String,
     autoform: {
       type: "time"
     }
   },
-  Select: {
-    type: String,
-    autoform: {
-      type: "select",
-      options: function () {
-        return [
-          {label: "2013", value: 2013},
-          {label: "2014", value: 2014},
-          {label: "2015", value: 2015}
-        ];
-      }
-    }
-  }
 });
 
 

@@ -5,3 +5,7 @@ rmui.setPalette = function(palette) {
 
 }
 
+rmui.afObjectFieldReady = new ReactiveVar(false);
+
+rmui.afArrayFieldReady = new ReactiveVar(false);
+
