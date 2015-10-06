@@ -144,18 +144,28 @@ const Select = React.createClass({
     let domNode = React.findDOMNode(this);
     $(domNode).val(event.target.value)
   },
+  componentDidMount(){
+    let domNode = React.findDOMNode(this);
+    let selectParent = $(domNode).children()[0]
+    $(selectParent).css({
+      width: '100%',
+      height: '100%'
+    })
+
+  },
   render() {
     return (
       <div
         data-schema-key={this.props.atts.dsk}>
         <SelectField
-  valueMember="value"
-  displayMember="label"
-  ref='selectField'
-errorText={this.props.atts.err}
-onChange={this._getValue}
-  menuItems={this.props.atts.items} />
-  </div>
+          valueMember="value"
+          className='muiSelect'
+          displayMember="label"
+          ref='selectField'
+          errorText={this.props.atts.err}
+          onChange={this._getValue}
+          menuItems={this.props.atts.items} />
+      </div>
     );
   },
 });
