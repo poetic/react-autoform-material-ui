@@ -52,14 +52,22 @@ const Range = React.createClass({
       trackValue:this.props.atts.value
     })
   },
+  componentDidMount(){
+    let defaultValue = this.props.atts.value
+    this._getValue(null, defaultValue)
+
+    let rmuiRange = this.refs.rmuiRange
+    let handleStyle = rmuiRange.getStyles().handle
+
+
+
+  },
   _getValue(event, value) {
     let domNode = React.findDOMNode(this);
     $(domNode).val(value)
 
     let trackerHandle = $(domNode).find('.react-draggable')[0]
     let trackValue = Math.round(value)
-
-    $(trackerHandle).text(trackValue)
 
   },
   getChildContext() {
@@ -71,11 +79,15 @@ const Range = React.createClass({
   render() {
     return (
       <div className='rmuiRange' data-schema-key={this.props.atts.dsk}>
-        <Slider value={this.props.atts.value} max={this.props.atts.max} min={this.props.atts.min}
+        <Slider defaultValue={this.props.atts.value}
+          value={this.props.atts.value}
+          max={this.props.atts.max} min={this.props.atts.min}
           error={Session.get(this.props.atts.err)}
-          id={this.props.atts.id} name={this.props.atts.id}
+          id={this.props.atts.id} name='rmuiRange'
           onChange={this._getValue}
-        />
+          ref='rmuiRange'
+          >
+        </Slider>
       </div>
     );
   }

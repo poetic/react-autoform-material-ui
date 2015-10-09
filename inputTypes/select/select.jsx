@@ -128,7 +128,7 @@ AutoForm.addInputType("select", {
   }
 });
 
-const { SelectField } = mui;
+const { DropDownMenu } = mui;
 const Select = React.createClass({
 
   childContextTypes: {
@@ -142,7 +142,14 @@ const Select = React.createClass({
   },
   _getValue(event, index, obj) {
     let domNode = React.findDOMNode(this);
-    $(domNode).val(event.target.value)
+    $(domNode).val(obj.value)
+
+    this._setIndex(index)
+  },
+  _setIndex(index){
+    this.refs.dropDownMenu.setState({
+      selectedIndex: index
+    })
   },
   componentDidMount(){
     let domNode = React.findDOMNode(this);
@@ -152,20 +159,27 @@ const Select = React.createClass({
       height: '100%'
     })
 
+
+    let selectedIndex=this.props.atts.selectedIndex
+    let value = this.props.atts.items[selectedIndex]
+
+    this._getValue(null,selectedIndex,value)
+
   },
   render() {
     return (
       <div
+        className='muiSelectContainer'
         data-schema-key={this.props.atts.dsk}>
-        <SelectField
+        <DropDownMenu
           valueMember="value"
           className='muiSelect'
           displayMember="label"
-          ref='selectField'
+          ref='dropDownMenu'
           errorText={this.props.atts.err}
           onChange={this._getValue}
           menuItems={this.props.atts.items} />
-      </div>
+     </div>
     );
   },
 });
@@ -174,7 +188,18 @@ Template["afSelect_reactAutoformMaterialUi"].helpers({
   atts: function(){
 
     let atts = new ReactAutoformUtility(this.atts);
-    atts.items = this.items;
+    atts.items = this.items
+    atts.selectedIndex = 0
+    if(this.value){
+      atts.value = this.value
+      let self = this
+      _.each(self.selectOptions,function(item,index){
+        if(item.value === self.value ){
+          atts.selectedIndex = index
+          atts.items = self.selectOptions
+        }
+      })
+    }
      return atts;
   },
   Select: function(){
