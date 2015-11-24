@@ -27,7 +27,7 @@ rmui.stylableDropDown = React.createClass({
 
     $(stylableSelect).select2({
       minimumResultsForSearch: -1,
-      width: '100px',
+      width: '100%',
     });
   },
 
