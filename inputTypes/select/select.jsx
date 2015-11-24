@@ -178,6 +178,7 @@ const Select = React.createClass({
           options={this.props.atts.items}
           ref='dropDownMenu'
           onChange={this._getValue}
+          stylableOptions={this.props.atts.stylableOptions}
           selectedIndex={this.props.atts.selectedIndex}
         />
       )
@@ -212,6 +213,7 @@ Template["afSelect_reactAutoformMaterialUi"].helpers({
     atts.items = this.items
     atts.selectedIndex = 0
     atts.stylable = this.atts.stylable || false
+    atts.stylableOptions = this.atts.stylableOptions || {}
 
     if(this.value){
       atts.value = this.value
