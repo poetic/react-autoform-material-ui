@@ -19,11 +19,17 @@ rmui.stylableDropDown = React.createClass({
   _getValue() {
     let stylableSelect = this.refs.stylableSelect.getDOMNode()
     let value = $(stylableSelect).val()
+    value = {
+      value: value
+    }
+
     this.props.onChange(null,null,value)
   },
 
   componentDidMount(){
+    let self = this
     let stylableSelect = this.refs.stylableSelect.getDOMNode()
+
     let defaultStylableOptions = {
       minimumResultsForSearch: -1,
       width: '100%',
@@ -31,6 +37,16 @@ rmui.stylableDropDown = React.createClass({
 
     let stylableOptions = _.extend(defaultStylableOptions,this.props.stylableOptions)
     $(stylableSelect).select2(stylableOptions);
+
+    $(stylableSelect).on('change',function(e) {
+      let target = e.target
+      let selectedIndex  = target.selectedIndex
+      let value  = {
+        value: target.value
+      }
+
+      self.props.onChange(target,selectedIndex,value)
+    })
   },
 
   getChildContext() {
@@ -57,7 +73,7 @@ rmui.stylableDropDown = React.createClass({
       <select
         className='muiSelectStylable'
         ref='stylableSelect'
-        onChange={this._getValue}>
+        >
         {
           _.map(options,function(option, index){
             let selected = (index === self.state.selectedIndex )
