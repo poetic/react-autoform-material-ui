@@ -154,23 +154,35 @@ const Select = React.createClass({
   componentDidMount(){
     let domNode = React.findDOMNode(this);
     let selectParent = $(domNode).children()[0]
+
     $(selectParent).css({
       width: '100%',
       height: '100%'
     })
 
-
-    let selectedIndex=this.props.atts.selectedIndex
+    let selectedIndex = this.props.atts.selectedIndex
     let value = this.props.atts.items[selectedIndex]
 
     this._getValue(null,selectedIndex,value)
 
   },
   render() {
-    return (
-      <div
-        className='muiSelectContainer'
-        data-schema-key={this.props.atts.dsk}>
+    const materialDropDown = 0
+    const stylableDropDown = 1
+
+    let dropDown = []
+
+    if(this.props.atts.stylable) {
+      dropDown.push(
+        <rmui.stylableDropDown
+          options={this.props.atts.items}
+          ref='dropDownMenu'
+          onChange={this._getValue}
+          selectedIndex={this.props.atts.selectedIndex}
+        />
+      )
+    }else {
+      dropDown.push(
         <DropDownMenu
           valueMember="value"
           className='muiSelect'
@@ -179,6 +191,15 @@ const Select = React.createClass({
           errorText={this.props.atts.err}
           onChange={this._getValue}
           menuItems={this.props.atts.items} />
+      )
+    }
+
+
+    return (
+      <div
+        className='muiSelectContainer'
+        data-schema-key={this.props.atts.dsk}>
+        {dropDown}
      </div>
     );
   },
@@ -190,6 +211,8 @@ Template["afSelect_reactAutoformMaterialUi"].helpers({
     let atts = new ReactAutoformUtility(this.atts);
     atts.items = this.items
     atts.selectedIndex = 0
+    atts.stylable = this.atts.stylable || false
+
     if(this.value){
       atts.value = this.value
       let self = this

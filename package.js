@@ -1,6 +1,6 @@
 Package.describe({
     name: 'poetic:react-autoform-material-ui',
-    version: '0.1.0',
+    version: '0.1.1',
     // Brief, one-line summary of the package.
     summary: 'Render your Autoform, using Material-UI components',
     // URL to the Git repository containing the source code for this package.
@@ -14,15 +14,16 @@ Package.onUse(function(api) {
     api.versionsFrom('1.1.0.2');
 
     api.use([
-        'react@0.1.7',
-        'react-template-helper@0.1.2',
-        'reactive-var',
-        'poetic:react-material-ui@0.0.2',
-        'templating@1.1.1',
-        'underscore@1.0.3',
-        'bigdsk:inputmask@3.1.63',
-        'aldeed:autoform@5.3.1',
-        'aldeed:collection2@2.3.3'
+      'react@0.1.7',
+      'react-template-helper@0.1.2',
+      'reactive-var',
+      'poetic:react-material-ui@0.0.2',
+      'templating@1.1.1',
+      'natestrauser:select2@4.0.0_1',
+      'underscore@1.0.3',
+      'bigdsk:inputmask@3.1.63',
+      'aldeed:autoform@5.3.1',
+      'aldeed:collection2@2.3.3'
     ], 'client');
     api.imply([
       'poetic:react-material-ui',
@@ -76,6 +77,7 @@ Package.onUse(function(api) {
         'inputTypes/reset/reset.html',
         'inputTypes/reset/reset.jsx',
         'inputTypes/select/select.html',
+        'inputTypes/select/select-stylable.jsx',
         'inputTypes/select/select.jsx',
         'inputTypes/tel/tel.html',
         'inputTypes/tel/tel.jsx',
