@@ -30,13 +30,13 @@ rmui.stylableDropDown = React.createClass({
     let self = this
     let stylableSelect = this.refs.stylableSelect.getDOMNode()
 
-    let defaultStylableOptions = {
-      minimumResultsForSearch: -1,
-      width: '100%',
-    }
+    // let defaultStylableOptions = {
+    //   minimumResultsForSearch: -1,
+    //   width: '100%',
+    // }
 
-    let stylableOptions = _.extend(defaultStylableOptions,this.props.stylableOptions)
-    $(stylableSelect).select2(stylableOptions);
+    // let stylableOptions = _.extend(defaultStylableOptions,this.props.stylableOptions)
+    // $(stylableSelect).select2(stylableOptions);
 
     $(stylableSelect).on('change',function(e) {
       let target = e.target
@@ -47,6 +47,7 @@ rmui.stylableDropDown = React.createClass({
 
       self.props.onChange(target,selectedIndex,value)
     })
+
   },
 
   getChildContext() {
@@ -54,6 +55,7 @@ rmui.stylableDropDown = React.createClass({
       muiTheme: ThemeManager.getCurrentTheme()
     };
   },
+
 
   render() {
     let defaultOptions = [
