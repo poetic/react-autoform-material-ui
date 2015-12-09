@@ -24,23 +24,34 @@ const Time = React.createClass({
   },
 
   render() {
-    return (
+    let timeComponent = [
       <TimePicker
         format="24hr"
         pedantic={true}
         errorText={this.props.atts.err}
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk} />
-    );
+    ]
+
+    timeComponent.push(
+      <rmui.stylableTime value={this.props.atts.value} />
+    )
+
+    let renderedComponent = this.props.atts.attributes.stylable ? timeComponent[1] : timeComponent[0]
+
+    return renderedComponent
   }
 });
 
 Template["afInputTime_reactAutoformMaterialUi"].helpers({
-	atts(){
+  atts(){
     let atts = new ReactAutoformUtility(this.atts);
+    atts.stylable = this.stylable;
+    atts.value = this.value;
+
     return atts;
-	},
-	Time(){
-		return Time;
-	}
+  },
+  Time(){
+    return Time;
+  }
 })

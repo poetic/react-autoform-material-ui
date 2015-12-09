@@ -62,6 +62,8 @@ Package.onUse(function(api) {
         'inputTypes/contenteditable/contenteditable.jsx',
         'inputTypes/date/date.html',
         'inputTypes/date/date.jsx',
+        'inputTypes/datetime-local/datetime-local.html',
+        'inputTypes/datetime-local/datetime-local.jsx',
         'inputTypes/email/email.html',
         'inputTypes/email/email.jsx',
         'inputTypes/file/file.html',
@@ -90,6 +92,7 @@ Package.onUse(function(api) {
         'inputTypes/submit/submit.html',
         'inputTypes/submit/submit.jsx',
         'inputTypes/time/time.html',
+        'inputTypes/time/time-stylable.jsx',
         'inputTypes/time/time.jsx',
 
         //load stylesheets
