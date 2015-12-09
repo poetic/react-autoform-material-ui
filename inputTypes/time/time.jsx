@@ -27,7 +27,6 @@ const Time = React.createClass({
   componentDidMount() {
     let comp = this.getDOMNode();
     $(comp).val(this.timeProcessor());
-    console.dir(this.getDOMNode());
   },
 
   timeProcessor() {
