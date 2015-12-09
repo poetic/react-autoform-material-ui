@@ -30,14 +30,6 @@ rmui.stylableDropDown = React.createClass({
     let self = this
     let stylableSelect = this.refs.stylableSelect.getDOMNode()
 
-    // let defaultStylableOptions = {
-    //   minimumResultsForSearch: -1,
-    //   width: '100%',
-    // }
-
-    // let stylableOptions = _.extend(defaultStylableOptions,this.props.stylableOptions)
-    // $(stylableSelect).select2(stylableOptions);
-
     $(stylableSelect).on('change',function(e) {
       let target = e.target
       let selectedIndex  = target.selectedIndex
