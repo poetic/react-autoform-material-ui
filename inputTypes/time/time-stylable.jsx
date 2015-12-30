@@ -8,7 +8,7 @@ rmui.stylableTime = React.createClass({
       let value  = {
         value: target.value
       }
-      self.props.onChange(target,value)
+      self.props.value = value.value;
     })
   },
 
