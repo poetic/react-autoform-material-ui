@@ -31,6 +31,7 @@ const TelFieldClass = React.createClass({
   render: function() {
     return (
       <TextField
+        floatingLabelText={this.props.atts.label}
         hintText={this.props.atts.label}
         type='tel'
         defaultValue={this.props.atts.value}
