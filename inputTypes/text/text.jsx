@@ -69,9 +69,14 @@ const TextFieldClass = React.createClass({
   },
   render: function() {
     return (
-      <TextField floatingLabelText={this.props.atts.label} defaultValue={this.props.atts.value}
+      <TextField
+        hintText={this.props.atts.label}
+        defaultValue={this.props.atts.value}
         fullWidth={true}
-       errorText={this.props.atts.err} id={this.props.atts.id} data-schema-key={this.props.atts.dsk} />
+        errorText={this.props.atts.err}
+        id={this.props.atts.id}
+        data-schema-key={this.props.atts.dsk}
+      />
     );
   }
 });
