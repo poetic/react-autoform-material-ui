@@ -62,3 +62,30 @@ AutoForm.addInputType("datetime-local", {
     return context;
   }
 });
+
+const dateTimeLocal = React.createClass({
+  render() {
+    return  (
+      <div className='dateAndTime'>
+        <input type="datetime-local"
+          style={{'border':'none'}}
+          className='dateTime' ref='datetime'
+          step='5'
+          min={this.props.atts.min}
+          data-schema-key={this.props.atts.dsk}
+          defaultValue={this.props.atts.value} />
+      </div>
+    )
+  }
+})
+
+Template.afInputDateTimeLocal_reactAutoformMaterialUi.helpers({
+  dateTimeLocal(){
+    return dateTimeLocal;
+  },
+  atts(){
+    let atts = new ReactAutoformUtility(this.atts);
+    atts.value = this.value || moment().toDate();
+    return atts;
+  }
+})
