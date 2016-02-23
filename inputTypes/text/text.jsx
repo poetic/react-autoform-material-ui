@@ -70,7 +70,7 @@ const TextFieldClass = React.createClass({
   render: function() {
     return (
       <TextField
-        hintText={this.props.atts.label}
+        floatingLabelText={this.props.atts.label}
         defaultValue={this.props.atts.value}
         fullWidth={true}
         errorText={this.props.atts.err}
