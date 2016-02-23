@@ -68,10 +68,14 @@ const Number = React.createClass({
 
   render: function() {
     return (
-      <TextField floatingLabelText={this.props.atts.label} type="number"
-       errorText={Session.get(this.props.atts.err)}
-        id={this.props.atts.id} name={this.props.atts.id}
-       data-schema-key={this.props.atts.dsk} />
+      <TextField
+        hintText={this.props.atts.label}
+        type="number"
+        errorText={Session.get(this.props.atts.err)}
+        id={this.props.atts.id}
+        name={this.props.atts.id}
+        data-schema-key={this.props.atts.dsk}
+      />
     );
   }
 });
