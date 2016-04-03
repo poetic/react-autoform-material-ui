@@ -1,7 +1,9 @@
+import React from 'react';
+import {RaisedButton} from 'material-ui';
+
 AutoForm.addInputType("file", {
   template: "afInputFile_reactAutoformMaterialUi"
 });
-const {RaisedButton} = mui;
 const File = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object

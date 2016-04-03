@@ -1,3 +1,6 @@
+import React from 'react';
+import { Slider } from 'material-ui';
+
 AutoForm.addInputType("range", {
   template: "afInputRange_reactAutoformMaterialUi",
   valueOut: function () {
@@ -41,7 +44,6 @@ AutoForm.addInputType("range", {
   }
 });
 
-const { Slider } = mui;
 const Range = React.createClass({
 
   childContextTypes: {

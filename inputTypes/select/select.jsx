@@ -1,3 +1,6 @@
+import React from 'react';
+import { DropDownMenu } from 'material-ui';
+
 AutoForm.addInputType("select", {
   template: "afSelect_reactAutoformMaterialUi",
   valueOut: function () {
@@ -128,7 +131,6 @@ AutoForm.addInputType("select", {
   }
 });
 
-const { DropDownMenu } = mui;
 const Select = React.createClass({
 
   childContextTypes: {
@@ -136,12 +138,15 @@ const Select = React.createClass({
   },
 
   getChildContext() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme
     };
   },
   _getValue(event, index, obj) {
-    let domNode = React.findDOMNode(this);
+    const domNode = this.refs.muiSelectContainer;
+    console.dir(index);
+    console.dir(obj);
     $(domNode).val(obj.value)
 
     this._setIndex(index)
@@ -198,6 +203,7 @@ const Select = React.createClass({
 
     return (
       <div
+        ref='muiSelectContainer'
         className='muiSelectContainer'
         data-schema-key={this.props.atts.dsk}>
         {dropDown}

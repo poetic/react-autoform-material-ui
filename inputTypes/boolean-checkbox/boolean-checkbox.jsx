@@ -1,3 +1,6 @@
+import React from 'react';
+import { Checkbox } from 'material-ui' ;
+
 AutoForm.addInputType("boolean-checkbox", {
   template: "afCheckbox_reactAutoformMaterialUi",
   valueOut: function () {
@@ -46,7 +49,6 @@ AutoForm.addInputType("boolean-checkbox", {
     return context;
   }
 });
-const { Checkbox } = mui;
 const CheckboxClass = React.createClass({
 
   childContextTypes: {
@@ -54,8 +56,9 @@ const CheckboxClass = React.createClass({
   },
 
   getChildContext: function() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme,
     };
   },
 

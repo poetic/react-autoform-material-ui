@@ -1,3 +1,6 @@
+import React from 'react';
+import { TextField } from 'material-ui';
+
 AutoForm.addInputType("textarea", {
   template: "afTextarea_reactAutoformMaterialUi",
   valueConverters: {
@@ -60,7 +63,6 @@ function linesToArray(text) {
   });
   return lines;
 }
-const { TextField } = mui;
 const TextArea = React.createClass({
 
   childContextTypes: {

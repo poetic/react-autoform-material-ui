@@ -1,3 +1,6 @@
+import React from 'react';
+import { TextField } from 'material-ui';
+
 AutoForm.addInputType("text", {
   template: "afInputText_reactAutoformMaterialUi",
   valueOut: function () {
@@ -56,15 +59,15 @@ AutoForm.addInputType("text", {
   }
 });
 
-const { TextField } = mui;
 const TextFieldClass = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
 
   getChildContext: function() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme,
     };
   },
   render: function() {

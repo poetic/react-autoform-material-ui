@@ -1,7 +1,9 @@
+import React from 'react';
+import { RaisedButton } from 'material-ui';
+
 AutoForm.addInputType("reset", {
   template: "afInputReset_reactAutoformMaterialUi"
 });
-const { RaisedButton } = mui;
 const ResetButton = React.createClass({
 
   childContextTypes: {

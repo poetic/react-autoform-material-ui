@@ -1,3 +1,6 @@
+import React from 'react';
+import { TextField } from 'material-ui';
+
 AutoForm.addInputType("email", {
   template: "afInputEmail_reactAutoformMaterialUi",
   contextAdjust: function (context) {
@@ -13,7 +16,6 @@ AutoForm.addInputType("email", {
 });
 
 
-const { TextField } = mui;
 const Email = React.createClass({
 
   childContextTypes: {
@@ -21,8 +23,9 @@ const Email = React.createClass({
   },
 
   getChildContext: function() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme 
     };
   },
 

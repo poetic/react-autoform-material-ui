@@ -1,3 +1,6 @@
+import React from 'react';
+import { RadioButton,RadioButtonGroup } from 'material-ui';
+
 AutoForm.addInputType("radio", {
   template: "afRadio_reactAutoformMaterialUi",
   valueOut: function () {
@@ -14,7 +17,6 @@ AutoForm.addInputType("radio", {
     }
   }
 });
-const { RadioButton,RadioButtonGroup } = mui;
 const Radio = React.createClass({
 
   childContextTypes: {

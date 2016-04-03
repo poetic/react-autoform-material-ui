@@ -1,3 +1,6 @@
+import React from 'react';
+import { RaisedButton } from 'material-ui';
+
 rmui.stylableDropDown = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
@@ -27,8 +30,8 @@ rmui.stylableDropDown = React.createClass({
   },
 
   componentDidMount(){
-    let self = this
-    let stylableSelect = this.refs.stylableSelect.getDOMNode()
+    let self = this;
+    const stylableSelect = this.refs.stylableSelect;
 
     $(stylableSelect).on('change',function(e) {
       let target = e.target
@@ -36,15 +39,16 @@ rmui.stylableDropDown = React.createClass({
       let value  = {
         value: target.value
       }
-
+      console.log('dome');
       self.props.onChange(target,selectedIndex,value)
     })
 
   },
 
   getChildContext() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme, 
     };
   },
 
@@ -67,17 +71,16 @@ rmui.stylableDropDown = React.createClass({
       <select
         className='muiSelectStylable'
         ref='stylableSelect'
-        >
+      >
         {
-          _.map(options,function(option, index){
-            let selected = (index === self.state.selectedIndex )
-            selected = selected ? 'selected' : ''
-            let optionComponent =  <option key={index} value={option.value}>{option.label}</option>
-
-            if(selected) {
-              optionComponent =  <option key={index} selected value={option.value}>{option.label}</option>
-              }
-              return optionComponent
+          _.map(options, (option, index) => {
+            console.log('spmeee');
+            return (
+              <option 
+                key={index}
+                selected={ (index === self.state.selectedIndex ) }
+                value={option.value}>{option.label}</option>
+              ); 
           })
         }
       </select>

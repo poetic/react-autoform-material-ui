@@ -1,3 +1,6 @@
+import React from 'react';
+import { RadioButtonGroup,RadioButton } from 'material-ui';
+
 AutoForm.addInputType("boolean-radios", {
   template: "afBooleanRadioGroup_reactAutoformMaterialUi",
   valueOut: function () {
@@ -42,7 +45,6 @@ AutoForm.addInputType("boolean-radios", {
     }
   }
 });
-const { RadioButtonGroup,RadioButton } = mui;
 const RadioButtonGroupClass = React.createClass({
 
   childContextTypes: {

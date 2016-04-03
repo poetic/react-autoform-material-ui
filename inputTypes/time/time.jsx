@@ -1,3 +1,6 @@
+import React from 'react';
+import { TimePicker } from 'material-ui';
+
 AutoForm.addInputType("time", {
   template: "afInputTime_reactAutoformMaterialUi",
   valueConverters: {
@@ -10,8 +13,6 @@ AutoForm.addInputType("time", {
     }
   }
 });
-
-const { TimePicker } = mui;
 const Time = React.createClass({
 
   childContextTypes: {
@@ -19,8 +20,9 @@ const Time = React.createClass({
   },
 
   getChildContext() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme,
     };
   },
 

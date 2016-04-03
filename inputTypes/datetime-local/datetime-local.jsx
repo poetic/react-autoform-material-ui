@@ -1,3 +1,5 @@
+import React from 'react';
+
 AutoForm.addInputType("datetime-local", {
   template: "afInputDateTimeLocal_reactAutoformMaterialUi",
   valueIn: function (val, atts) {

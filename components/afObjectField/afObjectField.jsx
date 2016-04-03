@@ -1,9 +1,11 @@
-const {
+import React from 'react';
+
+import {
   Card,
   CardHeader,
   CardText,
   Avatar
-} = mui;
+} from 'material-ui';
 
 let set = false;
 const objectField = React.createClass({

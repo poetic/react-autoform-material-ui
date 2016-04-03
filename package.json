@@ -1,0 +1,32 @@
+{
+  "name": "react-autoform-material-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poetic/react-autoform-material-ui.git"
+  },
+  "keywords": [
+    "autoform"
+  ],
+  "author": "poetic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poetic/react-autoform-material-ui/issues"
+  },
+  "homepage": "https://github.com/poetic/react-autoform-material-ui#readme",
+  "dependencies": {
+    "material-ui": "^0.13.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-mounter": "^1.1.0",
+    "react-tap-event-plugin": "^0.2.2"
+  }
+}

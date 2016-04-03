@@ -1,8 +1,9 @@
+import React from 'react';
+import { RaisedButton } from 'material-ui';
 AutoForm.addInputType("button", {
   template: "afInputButton_reactAutoformMaterialUi"
 });
 
-const { RaisedButton } = mui;
 const Button = React.createClass({
 
   childContextTypes: {

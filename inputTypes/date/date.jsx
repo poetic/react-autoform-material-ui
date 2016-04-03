@@ -1,3 +1,6 @@
+import React from 'react';
+import { DatePicker } from 'material-ui';
+
 AutoForm.addInputType("date", {
   template: "afInputDate_reactAutoformMaterialUi",
   valueIn: function (val) {
@@ -51,7 +54,6 @@ AutoForm.addInputType("date", {
   }
 });
 
-const {DatePicker} = mui;
 const DatePickerClass = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object

@@ -11,13 +11,12 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-    api.versionsFrom('1.1.0.2');
+    api.versionsFrom('1.3');
 
     api.use([
-      'react@0.1.7',
+      'ecmascript',
       'react-template-helper@0.1.2',
       'reactive-var',
-      'poetic:react-material-ui@0.0.2',
       'templating@1.1.1',
       'natestrauser:select2@4.0.0_1',
       'underscore@1.0.3',
@@ -26,9 +25,7 @@ Package.onUse(function(api) {
       'aldeed:collection2@2.3.3'
     ], 'client');
     api.imply([
-      'poetic:react-material-ui',
       'bigdsk:inputmask',
-      'react'
       ]);
     api.export([
     'rmui'

@@ -1,7 +1,9 @@
+import React from 'react';
+import { RaisedButton } from 'material-ui';
+
 AutoForm.addInputType("submit", {
   template: "afInputSubmit_reactAutoformMaterialUi"
 });
-const { RaisedButton } = mui;
 const Submit = React.createClass({
 
   childContextTypes: {

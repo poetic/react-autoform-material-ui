@@ -1,3 +1,5 @@
+import React from 'react';
+
 rmui.stylableTime = React.createClass({
   componentDidMount(){
     let self = this;

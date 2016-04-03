@@ -1,3 +1,6 @@
+import React from 'react';
+import { TextField } from 'material-ui';
+
 AutoForm.addInputType("password", {
   template: "afInputPassword_reactAutoformMaterialUi",
   valueConverters: {
@@ -16,15 +19,15 @@ AutoForm.addInputType("password", {
   }
 });
 
-const {TextField} = mui;
 const Password = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
 
   getChildContext: function() {
+    const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
+      muiTheme,
     };
   },
 

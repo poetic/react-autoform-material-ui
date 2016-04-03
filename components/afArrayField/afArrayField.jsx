@@ -1,4 +1,5 @@
-const {
+import React from 'react';
+import {
   Card,
   CardHeader,
   CardText,
@@ -6,7 +7,7 @@ const {
   RaisedButton,
   FontIcon,
   Avatar
-} = mui;
+} from 'material-ui';
 
 let set = false;
 const afArrayField = React.createClass({

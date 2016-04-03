@@ -1,3 +1,6 @@
+import React from 'react';
+import { TextField } from 'material-ui';
+
 AutoForm.addInputType("number", {
   template: "afInputNumber_reactAutoformMaterialUi",
   valueOut: function () {
@@ -53,7 +56,6 @@ AutoForm.addInputType("number", {
   }
 });
 
-const { TextField } = mui;
 const Number = React.createClass({
 
   childContextTypes: {

@@ -1,3 +1,6 @@
+import React from 'react';
+import { Checkbox } from 'material-ui';
+
 AutoForm.addInputType('checkbox', {
   template: 'afCheckboxGroup_reactAutoformMaterialUi',
   valueOut() {
@@ -10,7 +13,6 @@ AutoForm.addInputType('checkbox', {
   }
 });
 
-const { Checkbox } = mui;
 const CheckboxComponent = React.createClass({
 
   childContextTypes: {
