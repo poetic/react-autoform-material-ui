@@ -1,11 +1,19 @@
-import React from 'react';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
-import {
+checkNpmVersions({
+  'react': '0.14.x',
+  'react-dom': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { 
   Card,
   CardHeader,
   CardText,
   Avatar
-} from 'material-ui';
+} = require('material-ui');
 
 let set = false;
 const objectField = React.createClass({
@@ -20,7 +28,7 @@ const objectField = React.createClass({
     };
   },
   componentDidMount() {
-    let parentNode = React.findDOMNode(this.refs.placeholder);
+    const parentNode = this.refs.placeholder;
     rmui.afObjectFieldReady.set(parentNode);
   },
   render: function() {

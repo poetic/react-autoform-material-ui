@@ -1,5 +1,12 @@
-import React from 'react';
-import { RadioButton,RadioButtonGroup } from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const { RadioButton,RadioButtonGroup } = require('material-ui');
 
 AutoForm.addInputType("radio", {
   template: "afRadio_reactAutoformMaterialUi",

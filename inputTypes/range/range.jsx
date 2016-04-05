@@ -1,5 +1,14 @@
-import React from 'react';
-import { Slider } from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'react-dom': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { Slider } = require('material-ui');
 
 AutoForm.addInputType("range", {
   template: "afInputRange_reactAutoformMaterialUi",
@@ -65,7 +74,7 @@ const Range = React.createClass({
 
   },
   _getValue(event, value) {
-    let domNode = React.findDOMNode(this);
+    let domNode = ReactDOM.findDOMNode(this);
     $(domNode).val(value)
 
     let trackerHandle = $(domNode).find('.react-draggable')[0]

@@ -1,5 +1,14 @@
-import React from 'react';
-import {RaisedButton} from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const { RaisedButton } = require('material-ui');
+
+
 
 AutoForm.addInputType("file", {
   template: "afInputFile_reactAutoformMaterialUi"
@@ -18,7 +27,7 @@ const File = React.createClass({
     console.log(e.target.value)
   },
   _openFileDialog: function(){
-    var fileUploadDom = React.findDOMNode(this.refs.fileUpload);
+    const fileUploadDom = this.refs.fileUpload;
     fileUploadDom.click();
   },
 

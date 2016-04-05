@@ -1,5 +1,15 @@
-import React from 'react';
-import { TimePicker } from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'react-dom': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { TimePicker } = require('material-ui');
 
 AutoForm.addInputType("time", {
   template: "afInputTime_reactAutoformMaterialUi",
@@ -27,7 +37,7 @@ const Time = React.createClass({
   },
 
   componentDidMount() {
-    let comp = this.getDOMNode();
+    let comp = ReactDOM.findDOMNode(this.refs.timeContainer);
     $(comp).val(this.timeProcessor());
   },
 
@@ -51,7 +61,7 @@ const Time = React.createClass({
   },
 
   _getValue(event, obj) {
-    let domNode = React.findDOMNode(this);
+    let domNode = ReactDOM.findDOMNode(this);
     $(domNode).val(obj.value)
   },
 
@@ -79,6 +89,7 @@ const Time = React.createClass({
     return (
       <div
         data-schema-key={this.props.atts.dsk}
+        ref="timeContainer"
         value={defaultValue}
         >
         {renderedComponent}

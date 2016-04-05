@@ -1,5 +1,12 @@
-import React from 'react';
-import {
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const { 
   Card,
   CardHeader,
   CardText,
@@ -7,7 +14,7 @@ import {
   RaisedButton,
   FontIcon,
   Avatar
-} from 'material-ui';
+} = require('material-ui');
 
 let set = false;
 const afArrayField = React.createClass({
@@ -22,7 +29,7 @@ const afArrayField = React.createClass({
     };
   },
   componentDidMount() {
-    let parentNode = React.findDOMNode(this.refs.placeholder);
+    const parentNode = this.refs.placeholder;
     rmui.afArrayFieldReady.set(parentNode);
   },
   render: function() {

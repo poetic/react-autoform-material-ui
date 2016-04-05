@@ -1,7 +1,16 @@
-import React from 'react';
-import { RaisedButton } from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
-rmui.stylableDropDown = React.createClass({
+checkNpmVersions({
+  'react': '0.14.x',
+  'react-dom': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { RaisedButton } = require('material-ui');
+
+export default StylableDropDown = React.createClass({
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
@@ -20,7 +29,7 @@ rmui.stylableDropDown = React.createClass({
   },
 
   _getValue() {
-    let stylableSelect = this.refs.stylableSelect.getDOMNode()
+    let stylableSelect = ReactDOM.findDOMNode(this.refs.stylableSelect);
     let value = $(stylableSelect).val()
     value = {
       value: value
@@ -29,20 +38,13 @@ rmui.stylableDropDown = React.createClass({
     this.props.onChange(null,null,value)
   },
 
-  componentDidMount(){
-    let self = this;
-    const stylableSelect = this.refs.stylableSelect;
-
-    $(stylableSelect).on('change',function(e) {
-      let target = e.target
-      let selectedIndex  = target.selectedIndex
-      let value  = {
-        value: target.value
-      }
-      console.log('dome');
-      self.props.onChange(target,selectedIndex,value)
-    })
-
+  reportChange(e) {
+    const { target } = e;
+    const {value , selectedIndex }  = target;
+    const options  = {
+      value,
+    };
+    this.props.onChange(target, selectedIndex, options);
   },
 
   getChildContext() {
@@ -64,21 +66,21 @@ rmui.stylableDropDown = React.createClass({
         value: false
       },
     ]
-    let options = this.props.options || defaultOptions
-    let self = this
+    const options = this.props.options || defaultOptions
+    // const defaultValue = options[this.state.selectedIndex].value;
+    let self = this;
 
     return (
       <select
         className='muiSelectStylable'
         ref='stylableSelect'
+        onChange={ this.reportChange }
       >
         {
           _.map(options, (option, index) => {
-            console.log('spmeee');
             return (
               <option 
                 key={index}
-                selected={ (index === self.state.selectedIndex ) }
                 value={option.value}>{option.label}</option>
               ); 
           })

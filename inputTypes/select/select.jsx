@@ -1,5 +1,15 @@
-import React from 'react';
-import { DropDownMenu } from 'material-ui';
+import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+import StylableDropDown from './select-stylable.jsx';
+
+checkNpmVersions({
+  'react': '0.14.x',
+  'react-dom': '0.14.x',
+  'material-ui': '0.13.4',
+}, 'poetic:react-autoform-material-ui');
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { DropDownMenu } = require('material-ui');
 
 AutoForm.addInputType("select", {
   template: "afSelect_reactAutoformMaterialUi",
@@ -131,33 +141,39 @@ AutoForm.addInputType("select", {
   }
 });
 
-const Select = React.createClass({
-
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
+class Select extends React.Component {
+  constructor() {
+    super(); 
+    this._getValue = _.bind(this._getValue, this);
+    this._setIndex = _.bind(this._setIndex, this);
+    this.getDropDown = _.bind(this.getDropDown, this);
+    this.state = {
+      selectedIndex: 0,
+      dropDownMenu: null, 
+    };
+  }
 
   getChildContext() {
     const muiTheme = rmui.getComponentThemes();
     return {
       muiTheme
     };
-  },
-  _getValue(event, index, obj) {
-    const domNode = this.refs.muiSelectContainer;
-    console.dir(index);
-    console.dir(obj);
-    $(domNode).val(obj.value)
+  }
 
+  _getValue(event, index, obj) {
+    const domNode = ReactDOM.findDOMNode(this);
+    $(domNode).val(obj.value)
     this._setIndex(index)
-  },
-  _setIndex(index){
-    this.refs.dropDownMenu.setState({
-      selectedIndex: index
-    })
-  },
+  }
+
+  _setIndex(selectedIndex){
+    this.setState({
+      selectedIndex,
+    });
+  }
+
   componentDidMount(){
-    let domNode = React.findDOMNode(this);
+    let domNode = ReactDOM.findDOMNode(this);
     let selectParent = $(domNode).children()[0]
 
     $(selectParent).css({
@@ -170,36 +186,38 @@ const Select = React.createClass({
 
     this._getValue(null,selectedIndex,value)
 
-  },
-  render() {
-    const materialDropDown = 0
-    const stylableDropDown = 1
+  }
 
-    let dropDown = []
-
+  getDropDown() {
     if(this.props.atts.stylable) {
-      dropDown.push(
-        <rmui.stylableDropDown
+      return (
+        <StylableDropDown
           options={this.props.atts.items}
-          ref='dropDownMenu'
+          key="stylable"
           onChange={this._getValue}
           stylableOptions={this.props.atts.stylableOptions}
-          selectedIndex={this.props.atts.selectedIndex}
+          selectedIndex={ this.state.selectedIndex }
         />
-      )
-    }else {
-      dropDown.push(
-        <DropDownMenu
-          valueMember="value"
-          className='muiSelect'
-          displayMember="label"
-          ref='dropDownMenu'
-          errorText={this.props.atts.err}
-          onChange={this._getValue}
-          menuItems={this.props.atts.items} />
-      )
+      );
     }
+    return (
+      <DropDownMenu
+        valueMember="value"
+        className='muiSelect'
+        key="materialui"
+        displayMember="label"
+        selectedIndex={ this.state.selectedIndex }
+        errorText={this.props.atts.err}
+        onChange={this._getValue}
+        menuItems={this.props.atts.items} />
+    );
+  }
 
+  render() {
+    const materialDropDown = 0;
+    const stylableDropDown = 1;
+
+    const dropDown = this.getDropDown();
 
     return (
       <div
@@ -209,8 +227,12 @@ const Select = React.createClass({
         {dropDown}
      </div>
     );
-  },
-});
+  }
+};
+
+Select.childContextTypes = {
+  muiTheme: React.PropTypes.object
+}
 
 Template["afSelect_reactAutoformMaterialUi"].helpers({
   atts: function(){
