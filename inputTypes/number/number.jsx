@@ -81,6 +81,7 @@ const Number = React.createClass({
         hintText={this.props.atts.label}
         type="number"
         errorText={Session.get(this.props.atts.err)}
+        errorStyle={this.props.atts.errorStyle}
         id={this.props.atts.id}
         name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk}

@@ -38,6 +38,7 @@ const Email = React.createClass({
         type="email"
         defaultValue={this.props.atts.value}
         errorText={this.props.atts.err}
+        errorStyle={this.props.atts.errorStyle}
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk} />
 

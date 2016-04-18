@@ -46,6 +46,7 @@ const TelFieldClass = React.createClass({
         defaultValue={this.props.atts.value}
         fullWidth={true}
         errorText={this.props.atts.err}
+        errorStyle={this.props.atts.errorStyle}
         id={this.props.atts.id}
         data-schema-key={this.props.atts.dsk}
       />

@@ -1,6 +1,6 @@
 Package.describe({
     name: 'poetic:react-autoform-material-ui',
-    version: '0.1.2_1',
+    version: '0.1.3',
     // Brief, one-line summary of the package.
     summary: 'Render your Autoform, using Material-UI components',
     // URL to the Git repository containing the source code for this package.
@@ -14,7 +14,7 @@ Package.onUse(function(api) {
     api.versionsFrom('1.3');
 
     api.use([
-      'tmeasday:check-npm-versions',
+      'tmeasday:check-npm-versions@0.2.0',
       'ecmascript',
       'react-template-helper@0.1.2',
       'reactive-var',
