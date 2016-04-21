@@ -16,10 +16,11 @@ rmui.stylableTime = React.createClass({
 
     $(stylableTime).on('change',function(e) {
       let {target} = e;
+      const { onChange } = self.props;
       let value  = {
         value: target.value
       }
-      self.props.onChange(target,value)
+      _.isFunction(onChange) ? onChange(target,value) : null;
     })
   },
 
