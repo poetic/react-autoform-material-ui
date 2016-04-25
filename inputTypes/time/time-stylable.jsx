@@ -10,29 +10,40 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 rmui.stylableTime = React.createClass({
+  getInitialState() {
+    const { value: timeValue } = this.props;
+    return { timeValue }
+  },
+
   componentDidMount(){
     let self = this;
     let stylableTime = ReactDOM.findDOMNode(this.refs.stylableTime);
 
     $(stylableTime).on('change',function(e) {
-      let {target} = e;
-      const { onChange } = self.props;
-      let value  = {
-        value: target.value
-      }
-      _.isFunction(onChange) ? onChange(target,value) : null;
     })
   },
 
+  getValue() {
+    return this.state.timeValue;
+  },
+
+  onChange(e) {
+    const { value: timeValue } = e.target;
+    const { onChange } = this.props;
+    _.isFunction(onChange) ? onChange(e.target, { value: timeValue }) : null;
+    this.setState({ timeValue });
+  },
+
   render() {
-    let timeValue = this.props.value;
+    const { timeValue } = this.state;
 
     return (
       <input
         type="time"
         ref='stylableTime'
-        defaultValue={timeValue}
+        value={timeValue}
         className='muiTimeStylable'
+        onChange={ this.onChange }
         />
     );
   }
