@@ -2,10 +2,12 @@ import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
 checkNpmVersions({
   'react': '0.14.x',
+  'react-dom': '0.14.x',
   'material-ui': '0.13.4',
 }, 'poetic:react-autoform-material-ui');
 
 const React = require('react');
+const ReactDOM = require('react-dom');
 const { Checkbox } = require('material-ui');
 
 AutoForm.addInputType("boolean-checkbox", {
@@ -62,29 +64,56 @@ const CheckboxClass = React.createClass({
     muiTheme: React.PropTypes.object
   },
 
-  getChildContext: function() {
+  getChildContext() {
     const muiTheme = rmui.getComponentThemes();
     return {
       muiTheme,
     };
   },
 
-  render: function() {
+  componenetDidMount() {
+    this.onChange();
+  },
+
+  onChange() {
+    const { checkbox, checkboxContainer } = this.refs;
+    const checkboxNode = ReactDOM.findDOMNode(checkboxContainer);
+    $(checkboxNode).val(checkbox.isChecked());
+  },
+
+  render() {
+    const {
+      label,
+      err,
+      id,
+      dsk,
+      value,
+    } = this.props.atts;
     return (
-      <div>
-      <Checkbox label={this.props.atts.label}
-       errorText={this.props.atts.err} id={this.props.atts.id} data-schema-key={this.props.atts.dsk}/>
+      <div
+        ref="checkboxContainer"
+        data-schema-key={ dsk }
+      >
+        <Checkbox
+          label={ label }
+          ref="checkbox"
+          errorText={ err }
+          id={ id }
+          defaultChecked={ value }
+          onCheck={ this.onChange }
+        />
       </div>
     );
   }
 });
 Template["afCheckbox_reactAutoformMaterialUi"].helpers({
-  BooleanCheckbox: function(){
+  BooleanCheckbox() {
     return CheckboxClass;
   },
-  atts: function(){
-        let atts = new reactUtility(this.atts);
+  atts() {
+    const atts = new ReactAutoformUtility(this.atts);
+    atts.value = this.value || atts.value;
     return atts;
   }
-})
+});
 
