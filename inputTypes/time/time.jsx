@@ -66,9 +66,10 @@ const Time = React.createClass({
   },
 
   render() {
-    let defaultValue = this.timeProcessor();
+    const defaultValue = this.timeProcessor();
+    const { atts } = this.props;
 
-    let timeComponent = [
+    const timeComponent = [
       <TimePicker
         format="24hr"
         pedantic={true}
@@ -76,12 +77,14 @@ const Time = React.createClass({
         id={this.props.atts.id} name={this.props.atts.id}
         data-schema-key={this.props.atts.dsk}
         />
-    ]
+    ];
 
     timeComponent.push(
       <rmui.stylableTime
         onChange={this._getValue}
-        value={defaultValue} />
+        value={defaultValue}
+        disable={ atts.disable }
+      />
     )
 
     let renderedComponent = this.props.atts.attributes.stylable ? timeComponent[1] : timeComponent[0]
@@ -99,8 +102,9 @@ const Time = React.createClass({
 });
 
 Template["afInputTime_reactAutoformMaterialUi"].helpers({
-  atts(){
-    let atts = new ReactAutoformUtility(this.atts);
+  atts() {
+    const atts = new ReactAutoformUtility(this.atts);
+    atts.disable = this.disable || this.atts.disable;
     atts.stylable = this.stylable;
     atts.value = this.value;
 
@@ -109,4 +113,4 @@ Template["afInputTime_reactAutoformMaterialUi"].helpers({
   Time(){
     return Time;
   }
-})
+});

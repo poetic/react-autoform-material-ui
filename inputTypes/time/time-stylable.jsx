@@ -36,15 +36,17 @@ rmui.stylableTime = React.createClass({
 
   render() {
     const { timeValue } = this.state;
+    const { disable } = this.props;
 
     return (
       <input
         type="time"
+        disabled={ disable }
         ref='stylableTime'
         value={timeValue}
         className='muiTimeStylable'
         onChange={ this.onChange }
-        />
+      />
     );
   }
 });

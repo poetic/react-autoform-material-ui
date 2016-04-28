@@ -99,7 +99,7 @@ const CheckboxClass = React.createClass({
           ref="checkbox"
           errorText={ err }
           id={ id }
-          defaultChecked={ value }
+          defaultChecked={ ( value === true) }
           onCheck={ this.onChange }
         />
       </div>

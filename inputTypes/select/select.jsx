@@ -189,14 +189,17 @@ class Select extends React.Component {
   }
 
   getDropDown() {
-    if(this.props.atts.stylable) {
+    const { atts } = this.props;
+    if (atts.stylable) {
       return (
         <StylableDropDown
-          options={this.props.atts.items}
+          options={atts.items}
           key="stylable"
           onChange={this._getValue}
-          stylableOptions={this.props.atts.stylableOptions}
+          stylableOptions={atts.stylableOptions}
           selectedIndex={ this.state.selectedIndex }
+          defaultValue={ atts.value }
+          disable={ atts.disable }
         />
       );
     }
@@ -235,15 +238,15 @@ Select.childContextTypes = {
 }
 
 Template["afSelect_reactAutoformMaterialUi"].helpers({
-  atts: function(){
+  atts() {
+    const atts = new ReactAutoformUtility(this.atts);
+    atts.disable = this.disable || this.atts.disable; 
+    atts.items = this.items;
+    atts.selectedIndex = 0;
+    atts.stylable = this.atts.stylable || false;
+    atts.stylableOptions = this.atts.stylableOptions || {};
 
-    let atts = new ReactAutoformUtility(this.atts);
-    atts.items = this.items
-    atts.selectedIndex = 0
-    atts.stylable = this.atts.stylable || false
-    atts.stylableOptions = this.atts.stylableOptions || {}
-
-    if(this.value){
+    if (this.value){
       atts.value = this.value
       let self = this
       _.each(self.selectOptions,function(item,index){
@@ -255,7 +258,7 @@ Template["afSelect_reactAutoformMaterialUi"].helpers({
     }
      return atts;
   },
-  Select: function(){
+  Select() {
     return Select;
   }
 })

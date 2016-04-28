@@ -16,10 +16,8 @@ export default StylableDropDown = React.createClass({
   },
 
   getInitialState(){
-    let index = this.props.selectedIndex
-    return {
-      selectedIndex: index
-    }
+    const { selectedIndex } = this.props;
+    return { selectedIndex };
   },
 
   getOptions(){
@@ -29,13 +27,10 @@ export default StylableDropDown = React.createClass({
   },
 
   _getValue() {
-    let stylableSelect = ReactDOM.findDOMNode(this.refs.stylableSelect);
-    let value = $(stylableSelect).val()
-    value = {
-      value: value
-    }
+    const stylableSelect = ReactDOM.findDOMNode(this.refs.stylableSelect);
+    const value = $(stylableSelect).val();
 
-    this.props.onChange(null,null,value)
+    this.props.onChange(null,null, { value });
   },
 
   reportChange(e) {
@@ -45,6 +40,7 @@ export default StylableDropDown = React.createClass({
       value,
     };
     this.props.onChange(target, selectedIndex, options);
+    this.setState({ value });
   },
 
   getChildContext() {
@@ -54,9 +50,8 @@ export default StylableDropDown = React.createClass({
     };
   },
 
-
   render() {
-    let defaultOptions = [
+    const defaultOptions = [
       {
         label: 'Yes',
         value: true
@@ -65,23 +60,25 @@ export default StylableDropDown = React.createClass({
         label: 'No',
         value: false
       },
-    ]
-    const options = this.props.options || defaultOptions
-    // const defaultValue = options[this.state.selectedIndex].value;
-    let self = this;
+    ];
+    const { defaultValue, options = defaultOptions, disable } = this.props;
 
     return (
       <select
         className='muiSelectStylable'
         ref='stylableSelect'
         onChange={ this.reportChange }
+        defaultValue={ defaultValue }
+        disabled={ disable }
       >
         {
           _.map(options, (option, index) => {
             return (
               <option 
                 key={index}
-                value={option.value}>{option.label}</option>
+                value={option.value}>
+                {option.label}
+              </option>
               ); 
           })
         }
