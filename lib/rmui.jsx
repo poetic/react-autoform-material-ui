@@ -1,30 +1,25 @@
-import {
-  Styles,
-} from 'material-ui';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import LightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
-const { ThemeManager, LightRawTheme } = Styles;
 rmui = {};
 
-rmui.setPalette = function(palette) {
-  ThemeManager.setPalette(palette)
-}
+rmui.setPalette = function (palette) {
+  return getMuiTheme(palette);
+};
 
-rmui._defaultTheme = ThemeManager.getMuiTheme(LightRawTheme);
+rmui._defaultTheme = getMuiTheme(LightBaseTheme);
 
 rmui.setComponentThemes = theme => {
-  rmui.muiTheme = ThemeManager.getMuiTheme(theme);
-}
+  rmui.muiTheme = getMuiTheme(theme);
+};
 
 rmui.getComponentThemes = () => {
   const { muiTheme, _defaultTheme } = rmui;
-  return muiTheme || _defaultTheme; 
-}
+  return muiTheme || _defaultTheme;
+};
 
-rmui.getPalette = () => {
-  return ThemeManager.palette
-}
+rmui.getPalette = () => getMuiTheme(LightBaseTheme).palette;
 
 rmui.afObjectFieldReady = new ReactiveVar(false);
 
 rmui.afArrayFieldReady = new ReactiveVar(false);
-

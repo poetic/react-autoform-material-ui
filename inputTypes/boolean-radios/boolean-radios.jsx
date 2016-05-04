@@ -1,9 +1,6 @@
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+import checkVersions from '../../check-versions.jsx';
 
-checkNpmVersions({
-  'react': '0.14.x',
-  'material-ui': '0.13.4',
-}, 'poetic:react-autoform-material-ui');
+checkVersions();
 
 const React = require('react');
 const { RadioButtonGroup,RadioButton } = require('material-ui');
@@ -66,7 +63,7 @@ const RadioButtonGroupClass = React.createClass({
 
   render() {
     return (
-   
+
       <RadioButtonGroup errorText={this.props.atts.err} id={this.props.atts.id} name={this.props.atts.id} data-schema-key={this.props.atts.dsk} >
         <RadioButton
             value={true}
@@ -75,7 +72,7 @@ const RadioButtonGroupClass = React.createClass({
           value={false}
           label={this.props.atts.falseLabel}/>
        </RadioButtonGroup>
-     
+
     );
   }
 });
@@ -88,7 +85,7 @@ Template["afBooleanRadioGroup_reactAutoformMaterialUi"].helpers({
     let atts = new ReactAutoformUtility(this.atts);
 
     //Check atts object for label values, if not default to True or False
- 
+
     atts.trueLabel = (this.atts.trueLabel == undefined || null) ? "True" : this.atts.trueLabel;
     atts.falseLabel = (this.atts.falseLabel == undefined || null) ? "False" : this.atts.falseLabel;
 

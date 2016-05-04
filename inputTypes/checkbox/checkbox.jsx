@@ -1,9 +1,6 @@
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+import checkVersions from '../../check-versions.jsx';
 
-checkNpmVersions({
-  'react': '0.14.x',
-  'material-ui': '0.13.4',
-}, 'poetic:react-autoform-material-ui');
+checkVersions();
 
 const React = require('react');
 const { Checkbox } = require('material-ui');
@@ -38,7 +35,7 @@ const CheckboxComponent = React.createClass({
         id={this.props.atts.id}
         className='rmc_check'
         name={this.props.atts.id}
-        data-schema-key={this.props.atts.dsk} 
+        data-schema-key={this.props.atts.dsk}
         value={this.props.atts.value}
         label={this.props.atts.label}/>
     );

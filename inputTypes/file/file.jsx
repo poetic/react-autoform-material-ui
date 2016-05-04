@@ -1,9 +1,6 @@
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+import checkVersions from '../../check-versions.jsx';
 
-checkNpmVersions({
-  'react': '0.14.x',
-  'material-ui': '0.13.4',
-}, 'poetic:react-autoform-material-ui');
+checkVersions();
 
 const React = require('react');
 const { RaisedButton } = require('material-ui');

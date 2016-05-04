@@ -1,10 +1,6 @@
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
+import checkVersions from '../../check-versions.jsx';
 
-checkNpmVersions({
-  'react': '0.14.x',
-  'react-dom': '0.14.x',
-  'material-ui': '0.13.4',
-}, 'poetic:react-autoform-material-ui');
+checkVersions();
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -46,7 +42,7 @@ export default StylableDropDown = React.createClass({
   getChildContext() {
     const muiTheme = rmui.getComponentThemes();
     return {
-      muiTheme, 
+      muiTheme,
     };
   },
 
@@ -74,12 +70,12 @@ export default StylableDropDown = React.createClass({
         {
           _.map(options, (option, index) => {
             return (
-              <option 
+              <option
                 key={index}
                 value={option.value}>
                 {option.label}
               </option>
-              ); 
+              );
           })
         }
       </select>

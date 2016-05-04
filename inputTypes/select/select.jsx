@@ -1,11 +1,7 @@
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 import StylableDropDown from './select-stylable.jsx';
+import checkVersions from '../../check-versions.jsx';
 
-checkNpmVersions({
-  'react': '0.14.x',
-  'react-dom': '0.14.x',
-  'material-ui': '0.13.4',
-}, 'poetic:react-autoform-material-ui');
+checkVersions();
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -143,13 +139,13 @@ AutoForm.addInputType("select", {
 
 class Select extends React.Component {
   constructor() {
-    super(); 
+    super();
     this._getValue = _.bind(this._getValue, this);
     this._setIndex = _.bind(this._setIndex, this);
     this.getDropDown = _.bind(this.getDropDown, this);
     this.state = {
       selectedIndex: 0,
-      dropDownMenu: null, 
+      dropDownMenu: null,
     };
   }
 
@@ -240,7 +236,7 @@ Select.childContextTypes = {
 Template["afSelect_reactAutoformMaterialUi"].helpers({
   atts() {
     const atts = new ReactAutoformUtility(this.atts);
-    atts.disable = this.disable || this.atts.disable; 
+    atts.disable = this.disable || this.atts.disable;
     atts.items = this.items;
     atts.selectedIndex = 0;
     atts.stylable = this.atts.stylable || false;
