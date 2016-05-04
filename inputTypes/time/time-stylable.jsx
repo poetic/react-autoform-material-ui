@@ -15,12 +15,9 @@ rmui.stylableTime = React.createClass({
     return { timeValue }
   },
 
-  componentDidMount(){
-    let self = this;
-    let stylableTime = ReactDOM.findDOMNode(this.refs.stylableTime);
-
-    $(stylableTime).on('change',function(e) {
-    })
+  componentWillReceiveProps(newProps) {
+    const { value: timeValue } = newProps.props;
+    this.setState({ timeValue });
   },
 
   getValue() {
