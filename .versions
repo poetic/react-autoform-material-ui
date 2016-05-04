@@ -44,7 +44,7 @@ natestrauser:select2@4.0.0_1
 npm-mongo@1.4.43
 observe-sequence@1.0.11
 ordered-dict@1.0.7
-poetic:react-autoform-material-ui@0.1.8
+poetic:react-autoform-material-ui@0.1.9
 promise@0.6.7
 random@1.0.9
 react-runtime@0.13.3_4

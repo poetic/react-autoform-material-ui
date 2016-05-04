@@ -16,7 +16,7 @@ rmui.stylableTime = React.createClass({
   },
 
   componentWillReceiveProps(newProps) {
-    const { value: timeValue } = newProps.props;
+    const { value: timeValue } = newProps;
     this.setState({ timeValue });
   },
 
